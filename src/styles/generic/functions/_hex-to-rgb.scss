@@ -1,0 +1,5 @@
+// https://stackoverflow.com/questions/32931749/sass-hex-to-rgb-without-rgb-prefix/39906179
+@function hex-to-rgb($hexColor) {
+  @return #{round(red($hexColor))}, #{round(green($hexColor))},
+    #{round(blue($hexColor))};
+}

@@ -1,0 +1,34 @@
+@mixin link-hover-default($defaultActive: false, $color: currentColor) {
+  text-decoration: none;
+  background-image: linear-gradient(180deg, transparent 96%, $color 0);
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.4s ease;
+}
+
+@mixin link-hover-hover() {
+  background-size: 100% 100%;
+}
+
+@mixin link-hover($selector: '', $color: currentColor) {
+  $selector: unquote($selector);
+
+  @if $selector == '' {
+    @include link-hover-default($color);
+  } @else {
+    #{$selector} {
+      @include link-hover-default($color);
+    }
+  }
+
+  &:hover,
+  &.focus-visible {
+    @if $selector == '' {
+      @include link-hover-hover;
+    } @else {
+      #{$selector} {
+        @include link-hover-hover;
+      }
+    }
+  }
+}

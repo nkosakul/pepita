@@ -1,0 +1,50 @@
+@mixin reset-btn {
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin button {
+  @include reset-btn;
+
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 10px 30px 15px 30px;
+  overflow: hidden;
+  color: $c-white;
+  font-weight: $f-weight-bold;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: box-shadow 140ms ease;
+
+  &:visited {
+    color: $c-white;
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow:
+      0 0px 2.2px rgba(0, 0, 0, 0.02),
+      0 0px 5.3px rgba(0, 0, 0, 0.028),
+      0 0px 10px rgba(0, 0, 0, 0.035),
+      0 0px 17.9px rgba(0, 0, 0, 0.042),
+      0 0px 33.4px rgba(0, 0, 0, 0.05),
+      0 0px 80px rgba(0, 0, 0, 0.07);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.button {
+  @include button;
+}

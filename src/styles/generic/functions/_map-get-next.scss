@@ -1,0 +1,23 @@
+@function map-get-next($map, $key) {
+  // Check if map is valid
+  @if type-of($map) == map {
+    // Check if key exists in map
+    @if map-has-key($map, $key) {
+      // Get current key from list
+      $list: map-keys($map);
+
+      // Find index of current value and add 1
+      $index: (index($list, $key)) + 1;
+
+      // Get value from list with new index
+      $next-value: nth($list, $index);
+
+      @return $next-value;
+    }
+    @warn 'No valid key #{$key} in map';
+    @return false;
+  }
+
+  @warn 'No valid map';
+  @return false;
+}

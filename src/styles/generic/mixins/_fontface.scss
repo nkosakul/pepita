@@ -1,0 +1,98 @@
+@mixin fontFace($family, $src, $style: normal, $weight: normal) {
+  @font-face {
+    font-weight: $weight;
+    font-family: $family;
+    font-style: $style;
+    src: url('#{$src}.woff') format('woff'),
+      url('#{$src}.woff2') format('woff2');
+    font-display: block;
+  }
+}
+
+/* roboto-100 - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-100',
+  normal,
+  100
+);
+
+/* roboto-100italic - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-100italic',
+  italic,
+  100
+);
+
+/* roboto-300 - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-300',
+  normal,
+  100
+);
+
+/* roboto-300italic - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-300italic',
+  italic,
+  100
+);
+
+/* roboto-400 - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-regular',
+  normal,
+  400
+);
+
+/* roboto-400italic - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-italic',
+  italic,
+  400
+);
+
+/* roboto-500 - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-500',
+  normal,
+  500
+);
+
+/* roboto-500italic - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-500italic',
+  italic,
+  500
+);
+
+/* roboto-700 - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-700',
+  normal,
+  700
+);
+
+/* roboto-700italic - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-700italic',
+  italic,
+  700
+);
+
+/* roboto-900 - latin */
+@include fontFace(
+  $f-family-roboto,
+  '#{$path-font}roboto-v20-latin-900',
+  normal,
+  900
+);

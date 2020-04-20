@@ -1,0 +1,35 @@
+{
+  "name": "pepita",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nkosakul/pepita.git",
+  "author": "nkosakul <nkosakul@3pc.de>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "build": "cross-env gatsby build",
+    "analyze": "ANALYZE_BUNDLE_SIZE=true gatsby build"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "gatsby": "^2.20.25",
+    "gatsby-image": "^2.3.3",
+    "gatsby-plugin-react-helmet": "^3.2.3",
+    "gatsby-plugin-sass": "^2.2.2",
+    "gatsby-plugin-sharp": "^2.5.5",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
+    "gatsby-source-filesystem": "^2.2.3",
+    "gatsby-transformer-sharp": "^2.4.5",
+    "node-sass": "^4.13.1",
+    "prettier": "^2.0.4",
+    "prettier-eslint": "^9.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0"
+  }
+}
