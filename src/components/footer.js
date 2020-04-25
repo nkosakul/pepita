@@ -6,7 +6,7 @@ const Footer = () => {
   const { title, email, facebook, instagram, youtube } = useStaticMetadata();
 
   return (
-    <footer className="footer">
+    <footer className="footer" itemType="http://schema.org/WPFooter" itemScope>
       <h2 className="section-heading">Get in Touch</h2>
       <a className="footer__email" href={`mailto:${email}`}>
         {email}
@@ -49,7 +49,7 @@ const Footer = () => {
       </ul>
 
       <div className="footer__impress">
-        <p className="footer__copyright">
+        <p className="footer__copyright" itemProp="copyrightHolder">
           &copy; {title} - All rights reserved
         </p>
         <nav aria-label="Footer" className="footer__nav">
