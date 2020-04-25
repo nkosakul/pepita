@@ -19,7 +19,7 @@
 
 @mixin container-large {
   width: 100%;
-  max-width: 1920px + 2 * 40px;
+  max-width: 1920px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 40px;
@@ -38,7 +38,7 @@
 
 @mixin container-medium {
   width: 100%;
-  max-width: 1920px + 2 * 100px;
+  max-width: 1920px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 100px;

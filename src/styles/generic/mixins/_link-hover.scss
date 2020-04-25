@@ -22,7 +22,7 @@
   }
 
   &:hover,
-  &.focus-visible {
+  &:focus {
     color: $c-red;
 
     @if $selector == '' {
