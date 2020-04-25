@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
+import loadable from '@loadable/component';
 import Layout from '../components/Layout';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 
-export const query = useStaticQuery(graphql`
+export const query = graphql`
   query($slug: String!) {
     contentfulPage(slug: { eq: $slug }) {
       pageTitle
@@ -19,10 +20,15 @@ export const query = useStaticQuery(graphql`
             }
           }
         }
+        ... on ContentfulVideo {
+          __typename
+          id
+          youtubeUrl
+        }
       }
     }
   }
-`);
+`;
 
 export default ({ data: { contentfulPage: page } }) => {
   return (
@@ -30,13 +36,9 @@ export default ({ data: { contentfulPage: page } }) => {
       <Layout>
         {page.elements.map((element) => {
           const typename = element.__typename.replace('Contentful', '');
-          const Component = lazy(() => import(`../components/${typename}`));
+          const Component = loadable(() => import(`../components/${typename}`));
 
-          return (
-            <Suspense fallback={<div>Loading...</div>} key={element.id}>
-              <Component props={element} />
-            </Suspense>
-          );
+          return <Component props={element} key={element.id} />;
         })}
       </Layout>
     </>

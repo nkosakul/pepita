@@ -1,4 +1,5 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
+import loadable from '@loadable/component';
 import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
 
@@ -35,13 +36,9 @@ export default ({ data: { contentfulPage: page } }) => {
       <Layout>
         {page.elements.map((element) => {
           const typename = element.__typename.replace('Contentful', '');
-          const Component = lazy(() => import(`../components/${typename}`));
+          const Component = loadable(() => import(`../components/${typename}`));
 
-          return (
-            <Suspense fallback={<div>Loading...</div>} key={element.id}>
-              <Component props={element} />
-            </Suspense>
-          );
+          return <Component props={element} key={element.id} />;
         })}
       </Layout>
     </>
