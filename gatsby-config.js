@@ -5,6 +5,10 @@ module.exports = {
     title: 'Pepita Maria Bauhardt',
     description: 'Pepita Maria Bauhardt Bescheibung', // TODO: add real description
     email: 'booking@pepitabauhardt.com',
+    facebook: 'https://www.facebook.com/pepita.bauhardt/?ref=page_internal',
+    instagram: 'https://www.instagram.com/pepijuno/?hl=de',
+    youtube:
+      'https://www.youtube.com/channel/UCfVMLPpVfi1yAh7CcNuH2Zg/featured',
   },
   plugins: [
     'gatsby-plugin-sass',
