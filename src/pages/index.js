@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
 
 export const query = graphql`
