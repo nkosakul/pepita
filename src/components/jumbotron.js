@@ -1,36 +1,21 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
-const Jumbotron = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      image: file(relativePath: { eq: "jumbotron.jpg" }) {
-        sharp: childImageSharp {
-          fluid {
-            src
-          }
-        }
-      }
-    }
-  `);
+const Jumbotron = ({ props }) => (
+  <section className="jumbotron">
+    <div className="jumbotron__image">
+      <Image fluid={props.image.fluid} alt={props.image.title} />
+    </div>
 
-  return (
-    <section className="jumbotron">
-      <div className="jumbotron__image">
-        <Image fluid={data.image.sharp.fluid} alt="placeholder" />
+    <div className="jumbotron__inner">
+      <div className="jumbotron__context">
+        <h1
+          className="is-h2"
+          dangerouslySetInnerHTML={{ __html: props.title }}
+        />
       </div>
 
-      <div className="jumbotron__inner">
-        <div className="jumbotron__context">
-          <h1 className="sr-only">Pepita Maria Bauhardt</h1>
-          <h2>
-            Dancer.
-            <br />
-            Coach. Choreographer.
-          </h2>
-        </div>
-
+      {props.showSocialmediaIcons && (
         <ul className="jumbotron__socialmedia">
           <li className="jumbotron__list-item">
             <a href="/" className="button--round">
@@ -51,9 +36,9 @@ const Jumbotron = () => {
             </a>
           </li>
         </ul>
-      </div>
-    </section>
-  );
-};
+      )}
+    </div>
+  </section>
+);
 
 export default Jumbotron;

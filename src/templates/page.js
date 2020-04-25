@@ -3,8 +3,8 @@ import Layout from '../components/layout';
 import { graphql } from 'gatsby';
 
 export const query = graphql`
-  query {
-    contentfulPage(slug: { eq: "index" }) {
+  query($slug: String!) {
+    contentfulPage(slug: { eq: $slug }) {
       pageTitle
       elements {
         ... on ContentfulJumbotron {
@@ -18,11 +18,6 @@ export const query = graphql`
               ...GatsbyContentfulFluid_withWebp
             }
           }
-        }
-        ... on ContentfulVideo {
-          __typename
-          id
-          youtubeUrl
         }
       }
     }
