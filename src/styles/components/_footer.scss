@@ -81,7 +81,7 @@
 
     &:hover,
     &:focus {
-      color: $c-black;
+      border-color: $c-red;
 
       &:after {
         transform: scale(1);
@@ -96,7 +96,7 @@
       z-index: -1;
       width: 100%;
       height: 100%;
-      background-color: $c-white;
+      background-color: $c-red;
       border-radius: 50%;
       transform: scale(0);
       transition: transform 300ms ease-in-out;

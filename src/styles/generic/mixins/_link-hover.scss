@@ -23,6 +23,8 @@
 
   &:hover,
   &.focus-visible {
+    color: $c-red;
+
     @if $selector == '' {
       @include link-hover-hover;
     } @else {
