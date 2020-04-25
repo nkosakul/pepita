@@ -1,10 +1,12 @@
 import React from 'react';
 import '../styles/index.scss';
+import Footer from './footer';
 
 const Layout = ({ children }) => {
   return (
     <>
-      <main>{children}</main>
+      {children}
+      <Footer />
     </>
   );
 };

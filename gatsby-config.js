@@ -2,8 +2,8 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
-    title: 'Frontend Workshop',
-    description: 'Our mini Frontend workshop',
+    title: 'Pepita Maria Bauhardt',
+    description: 'Pepita Maria Bauhardt Bescheibung', // TODO: add real description
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -23,7 +23,7 @@ module.exports = {
         production: true,
         disable: !process.env.ANALYZE_BUDNLE_SIZE,
         generateStatsFile: true,
-        analyzerMode: 'static'
+        analyzerMode: 'static',
       },
     },
   ],

@@ -6,24 +6,43 @@
   }
 }
 
-@mixin container-large {
+@mixin container-xlarge {
   width: 100%;
   max-width: 1920px;
   margin-right: auto;
   margin-left: auto;
 }
 
-@mixin container-medium {
+@mixin container-large {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1920px + 2 * 40px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 90px;
-  padding-left: 90px;
+  padding-right: 40px;
+  padding-left: 40px;
 
-  @include mq(xlarge) {
-    padding-right: 40px;
-    padding-left: 40px;
+  @include mq(large) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @include mq(small) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+@mixin container-medium {
+  width: 100%;
+  max-width: 1920px + 2 * 100px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 100px;
+  padding-left: 100px;
+
+  @include mq(large) {
+    padding-right: 30px;
+    padding-left: 30px;
   }
 
   @include mq(small) {

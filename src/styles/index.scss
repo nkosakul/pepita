@@ -28,11 +28,15 @@
 @import 'generic/normalize.scss';
 
 // Base Components //----------------------------------------------------------
+@import 'base/buttons';
+@import 'base/links';
+@import 'base/icons';
+@import 'base/lists';
 @import 'base/headings';
 @import 'base/main';
 
 // Components //----------------------------------------------------------
-@import 'components/buttons';
+@import 'components/footer';
 
 // Print //--------------------------------------------------------------------
 @media print {
