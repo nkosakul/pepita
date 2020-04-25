@@ -1,0 +1,65 @@
+.jumbotron {
+  @include container-large;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+  .gatsby-image-wrapper {
+    position: static !important;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__context {
+    z-index: 1;
+    color: $c-white;
+    opacity: 0.4;
+    mix-blend-mode: normal;
+  }
+
+  &__socialmedia {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mq(large) {
+      bottom: 30px;
+    }
+
+    @include mq(small) {
+      bottom: 20px;
+    }
+  }
+
+  &__list-item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

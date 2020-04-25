@@ -63,46 +63,6 @@
     }
   }
 
-  &__socialmedia-link {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 45px;
-    height: 45px;
-    border: 1px solid $c-white;
-    border-radius: 50%;
-
-    @include mq(xsmall) {
-      width: 40px;
-      height: 40px;
-    }
-
-    &:hover,
-    &:focus {
-      border-color: $c-red;
-
-      &:after {
-        transform: scale(1);
-      }
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background-color: $c-red;
-      border-radius: 50%;
-      transform: scale(0);
-      transition: transform 150ms ease-in-out;
-    }
-  }
-
   &__impress {
     margin-top: 60px;
 

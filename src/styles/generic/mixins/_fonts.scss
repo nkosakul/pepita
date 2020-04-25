@@ -6,31 +6,38 @@
 }
 
 @mixin h1 {
-  @include font($f-family, $f-weight-bold, 60px, 65px);
+  @include font($f-family, $f-weight-bold, 94px, 91px);
+
+  text-transform: uppercase;
 
   @include mq(large) {
-    font-size: 35px;
-    line-height: 45px;
+    font-size: 75px;
+    line-height: 76px;
   }
 
   @include mq(small) {
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 45px;
+    line-height: 46px;
+    hyphens: auto;
   }
 }
 
 @mixin h2 {
-  @include font($f-family, $f-weight-bold, 50px, 60px);
+  @include font($f-family, $f-weight-bold, 75px, 75px);
+
+  letter-spacing: 8px;
+  text-transform: uppercase;
 
   @include mq(large) {
-    font-size: 32px;
-    line-height: 42px;
+    font-size: 50px;
+    line-height: 55px;
+    letter-spacing: 5px;
   }
 
   @include mq(small) {
-    font-size: 30px;
-    line-height: 35px;
-    letter-spacing: inherit;
+    font-size: 31px;
+    line-height: 36px;
+    letter-spacing: 3px;
   }
 }
 

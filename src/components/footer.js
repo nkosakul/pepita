@@ -9,19 +9,19 @@ const Footer = () => (
 
     <ul className="footer__socialmedia">
       <li className="footer__list-item">
-        <a href="/" className="footer__socialmedia-link">
+        <a href="/" className="button--round">
           <i className="icon-instagram" aria-hidden="true"></i>
           <span className="sr-only">Zur Instagram Seite</span>
         </a>
       </li>
       <li className="footer__list-item">
-        <a href="/" className="footer__socialmedia-link">
+        <a href="/" className="button--round">
           <i className="icon-facebook" aria-hidden="true"></i>
           <span className="sr-only">Zur Facebook Seite</span>
         </a>
       </li>
       <li className="footer__list-item">
-        <a href="/" className="footer__socialmedia-link">
+        <a href="/" className="button--round">
           <i className="icon-youtube" aria-hidden="true"></i>
           <span className="sr-only">Zur Youtube Seite</span>
         </a>
