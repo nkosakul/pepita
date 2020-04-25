@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
-import Layout from '../components/layout';
-import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
+import { graphql, useStaticQuery } from 'gatsby';
 
-export const query = graphql`
+export const query = useStaticQuery(graphql`
   query($slug: String!) {
     contentfulPage(slug: { eq: $slug }) {
       pageTitle
@@ -22,7 +22,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`);
 
 export default ({ data: { contentfulPage: page } }) => {
   return (
