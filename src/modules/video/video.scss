@@ -1,0 +1,98 @@
+@import './plyr-settings';
+@import '../../node_modules/plyr/src/sass/plyr.scss';
+@import '../../styles/base/icons';
+@import '../../styles/generic/variables/colors';
+@import '../../styles/generic/variables/breakpoints';
+@import '../../styles/generic/mixins/media-query';
+
+// video & audio stylings
+.plyr--video,
+.plyr--audio {
+  input[type='range'] {
+    color: $c-white;
+  }
+
+  .plyr__progress__buffer {
+    color: rgba(255, 255, 255, 0.3);
+    border-radius: 0;
+  }
+}
+
+// video
+.plyr--video {
+  &.plyr--stopped,
+  &.plyr--ended {
+    .plyr__controls {
+      display: none;
+    }
+  }
+
+  .plyr__control.plyr__tab-focus,
+  .plyr__control:hover,
+  .plyr__control[aria-expanded='true'] {
+    color: white;
+    background: black;
+  }
+
+  .plyr__controls {
+    padding: 8px 13px;
+    background: black;
+  }
+
+  .plyr__control--overlaid {
+    padding: 23px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+
+    @include mq(small) {
+      padding: 18px;
+    }
+
+    &:hover,
+    &.focus-visible {
+      background-color: rgba(0, 0, 0, 0.2);
+
+      &:before {
+        color: white;
+      }
+
+      &:after {
+        background: black;
+      }
+    }
+
+    &:before {
+      @include icon;
+
+      content: map-get($icons, 'play');
+      display: block;
+      font-size: 26px;
+
+      @include mq(small) {
+        font-size: 17px;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: calc(100% - 12px);
+      height: calc(100% - 12px);
+      background: #1a1616;
+      border-radius: 50%;
+      transform: translateX(-50%) translateY(-50%);
+
+      @include mq(small) {
+        width: calc(100% - 8px);
+        height: calc(100% - 8px);
+      }
+    }
+
+    svg {
+      display: none;
+    }
+  }
+}

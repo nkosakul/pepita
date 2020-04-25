@@ -35,9 +35,12 @@
 @import 'base/headings';
 @import 'base/main';
 
-// Components //----------------------------------------------------------
+// Components //---------------------------------------------------------------
 @import 'components/footer';
 @import 'components/jumbotron';
+
+// JS Modules //---------------------------------------------------------------
+@import '../modules/video/video.scss';
 
 // Print //--------------------------------------------------------------------
 @media print {
