@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 const Footer = () => (
   <footer className="footer">
+    <h2 className="section-heading">Get in Touch</h2>
     <a className="footer__email" href="mailto:booking@pepitabauhardt.com">
       booking@pepitabauhardt.com
     </a>

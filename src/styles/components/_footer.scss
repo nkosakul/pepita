@@ -1,6 +1,6 @@
 .footer {
   @include container-medium;
-  @include module-space;
+  @include module-space-large;
 
   position: relative;
   display: flex;
@@ -10,6 +10,10 @@
   padding-top: 60px;
   padding-bottom: 100px;
   text-align: center;
+
+  @include mq(large) {
+    padding-bottom: 50px;
+  }
 
   &:before {
     content: '';
@@ -28,6 +32,16 @@
     font-weight: $f-weight-bold;
     font-size: 48px;
     line-height: 57px;
+
+    @include mq(large) {
+      font-size: 40px;
+      line-height: 45px;
+    }
+
+    @include mq(xsmall) {
+      font-size: 22px;
+      line-height: 27px;
+    }
   }
 
   &__socialmedia {
@@ -35,6 +49,10 @@
     align-items: center;
     justify-content: center;
     margin-top: 60px;
+
+    @include mq(large) {
+      margin-top: 40px;
+    }
   }
 
   &__list-item {
@@ -55,6 +73,11 @@
     height: 45px;
     border: 1px solid $c-white;
     border-radius: 50%;
+
+    @include mq(xsmall) {
+      width: 40px;
+      height: 40px;
+    }
 
     &:hover,
     &:focus {
@@ -82,6 +105,10 @@
 
   &__impress {
     margin-top: 60px;
+
+    @include mq(large) {
+      margin-top: 40px;
+    }
   }
 
   &__nav {

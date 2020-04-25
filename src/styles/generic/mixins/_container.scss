@@ -6,6 +6,10 @@
   }
 }
 
+@mixin module-space-large {
+  margin-top: 25vw;
+}
+
 @mixin container-xlarge {
   width: 100%;
   max-width: 1920px;

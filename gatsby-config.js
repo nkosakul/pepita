@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Pepita Maria Bauhardt',
     description: 'Pepita Maria Bauhardt Bescheibung', // TODO: add real description
+    email: 'booking@pepitabauhardt.com',
   },
   plugins: [
     'gatsby-plugin-sass',
