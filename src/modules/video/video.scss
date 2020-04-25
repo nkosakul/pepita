@@ -40,24 +40,16 @@
   }
 
   .plyr__control--overlaid {
-    padding: 23px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-
-    @include mq(small) {
-      padding: 18px;
-    }
+    padding: 0;
+    background: none;
+    background-color: transparent;
 
     &:hover,
-    &.focus-visible {
-      background-color: rgba(0, 0, 0, 0.2);
+    &:focus {
+      background: none;
 
       &:before {
-        color: white;
-      }
-
-      &:after {
-        background: black;
+        color: #c23842;
       }
     }
 
@@ -66,28 +58,10 @@
 
       content: map-get($icons, 'play');
       display: block;
-      font-size: 26px;
+      font-size: 99px;
 
       @include mq(small) {
-        font-size: 17px;
-      }
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-      width: calc(100% - 12px);
-      height: calc(100% - 12px);
-      background: #1a1616;
-      border-radius: 50%;
-      transform: translateX(-50%) translateY(-50%);
-
-      @include mq(small) {
-        width: calc(100% - 8px);
-        height: calc(100% - 8px);
+        font-size: 60px;
       }
     }
 

@@ -1,0 +1,22 @@
+.video-player {
+  @include container-large;
+  @include module-space;
+
+  &__inner {
+    @include fixed-ratio;
+
+    background-color: $c-black;
+  }
+}
+
+.jumbotron + .video-player {
+  margin-top: 40px;
+
+  @include mq(large) {
+    margin-top: 30px;
+  }
+
+  @include mq(small) {
+    margin-top: 20px;
+  }
+}

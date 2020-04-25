@@ -28,7 +28,7 @@
     "gatsby-transformer-sharp": "^2.4.7",
     "intersection-observer": "^0.10.0",
     "node-sass": "^4.14.0",
-    "plyr": "^3.5.10",
+    "plyr-react": "^2.2.0",
     "prettier": "^2.0.5",
     "prettier-eslint": "^9.0.1",
     "react": "^16.13.1",

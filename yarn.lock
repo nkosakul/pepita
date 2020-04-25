@@ -10359,7 +10359,14 @@ pkg-up@2.0.0, pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plyr@^3.5.10:
+plyr-react@^2.2.0:
+  version "2.2.0"
+  resolved "https://nexus.3pc.de/repository/npm-group/plyr-react/-/plyr-react-2.2.0.tgz#e8efc50c911115d0a0d5de5a731349ffbe3c4274"
+  integrity sha512-nA0cdJf6ER73CRc+XRy+DeXPltuuOomoVtSwrljhQW1JT0trH2w97kE+OQ+O+bXafOKDGgN10PR4BNnLNTowmQ==
+  dependencies:
+    plyr "^3.5.6"
+
+plyr@^3.5.6:
   version "3.5.10"
   resolved "https://nexus.3pc.de/repository/npm-group/plyr/-/plyr-3.5.10.tgz#631fb379135abd17ea822817db3046b484c8166c"
   integrity sha512-wbbSuzk3yKVOmYWQUnxG1bxikqZNkxZmL3OjS1DFVU0D2Uko1evGY72LuD9rm/HnNCNzcTuc0c6MCn7bRRpUTA==
