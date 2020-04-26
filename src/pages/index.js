@@ -24,6 +24,7 @@ export const query = graphql`
         ... on ContentfulVideo {
           __typename
           id
+          heading
           youtubeUrl
         }
       }

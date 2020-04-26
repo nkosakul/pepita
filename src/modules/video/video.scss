@@ -42,6 +42,8 @@
   .plyr__control--overlaid {
     padding: 0;
     background: none;
+    border: none;
+    border-radius: 0;
     background-color: transparent;
 
     &:hover,

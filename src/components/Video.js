@@ -28,7 +28,10 @@ const Video = ({ props }) => {
   }, []);
 
   return (
-    <div className="video-player">
+    <section className="video-player">
+      {props.heading && (
+        <h2 className="video-player__title">{props.heading}</h2>
+      )}
       <div className="video-player__inner">
         <div>
           <div
@@ -38,7 +41,7 @@ const Video = ({ props }) => {
           ></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

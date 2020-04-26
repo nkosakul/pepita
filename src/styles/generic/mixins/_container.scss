@@ -1,5 +1,21 @@
 @mixin module-space {
-  margin-top: 100px;
+  margin-top: 130px;
+
+  @include mq(xlarge) {
+    margin-top: 80px;
+  }
+
+  @include mq(small) {
+    margin-top: 65px;
+  }
+}
+
+@mixin module-space-small {
+  margin-top: 70px;
+
+  @include mq(xlarge) {
+    margin-top: 50px;
+  }
 
   @include mq(small) {
     margin-top: 30px;
