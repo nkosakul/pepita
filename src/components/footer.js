@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import useStaticMetadata from '../hooks/use-sitemetadata';
+import useSiteMetadata from '../hooks/use-sitemetadata';
 
 const Footer = () => {
-  const { title, email, facebook, instagram, youtube } = useStaticMetadata();
+  const { title, email, facebook, instagram, youtube } = useSiteMetadata();
 
   return (
     <footer className="footer" itemType="http://schema.org/WPFooter" itemScope>

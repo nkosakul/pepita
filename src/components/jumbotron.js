@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'gatsby-image';
-import useStaticMetadata from '../hooks/use-sitemetadata';
+import useSiteMetadata from '../hooks/use-sitemetadata';
 
 const Jumbotron = ({ props }) => {
-  const { facebook, instagram, youtube } = useStaticMetadata();
+  const { facebook, instagram, youtube } = useSiteMetadata();
 
   return (
     <section className="jumbotron">
