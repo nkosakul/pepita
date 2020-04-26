@@ -31,9 +31,11 @@ export const query = graphql`
 `;
 
 export default ({ data: { contentfulPage: page } }) => {
+  const showFooterHeading = true;
+
   return (
     <>
-      <Layout>
+      <Layout showFooterHeading={showFooterHeading}>
         {page.elements.map((element) => {
           const typename = element.__typename.replace('Contentful', '');
           const Component = loadable(() => import(`../components/${typename}`));

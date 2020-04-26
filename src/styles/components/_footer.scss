@@ -1,6 +1,10 @@
 .footer {
   @include container-medium;
-  @include module-space-large;
+  @include module-space;
+
+  &--large-space {
+    @include module-space-large;
+  }
 
   position: relative;
   display: flex;

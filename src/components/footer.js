@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'gatsby';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
-const Footer = () => {
+const Footer = ({ showFooterHeading = false }) => {
   const { title, email, facebook, instagram, youtube } = useSiteMetadata();
 
   return (
-    <footer className="footer" itemType="http://schema.org/WPFooter" itemScope>
-      <h2 className="section-heading">Get in Touch</h2>
+    <footer
+      className={`footer ${showFooterHeading && 'footer--large-space'}`}
+      itemType="http://schema.org/WPFooter"
+      itemScope
+    >
+      {showFooterHeading && <h2 className="section-heading">Get in Touch</h2>}
       <a className="footer__email" href={`mailto:${email}`}>
         {email}
       </a>
