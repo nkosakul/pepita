@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop",
-    "build": "cross-env gatsby build",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "analyze": "ANALYZE_BUNDLE_SIZE=true gatsby build"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "gatsby": "^2.20.18",
+    "gatsby": "^2.20.35",
     "gatsby-image": "^2.3.3",
     "gatsby-plugin-react-helmet": "^3.2.5",
     "gatsby-plugin-sass": "^2.2.4",
