@@ -11,13 +11,23 @@
     "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "analyze": "ANALYZE_BUNDLE_SIZE=true gatsby build"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.scss": [
+      "prettier --single-quote --parser=scss --write",
+      "stylelint --syntax=scss --fix"
+    ],
+    "src/**/*.js": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
     "gatsby": "^2.20.36",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-loadable-components-ssr": "^2.0.0",
@@ -31,10 +41,18 @@
     "intersection-observer": "^0.10.0",
     "node-sass": "^4.14.0",
     "plyr-react": "^2.2.0",
-    "prettier": "^2.0.5",
-    "prettier-eslint": "^9.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^9.0.1"
   }
 }
