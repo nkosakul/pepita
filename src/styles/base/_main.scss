@@ -16,3 +16,11 @@ html {
 body {
   overflow-x: hidden;
 }
+
+::-moz-selection {
+  background: $c-red;
+}
+
+::selection {
+  background: $c-red;
+}

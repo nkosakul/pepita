@@ -7,7 +7,15 @@
 }
 
 @mixin module-space-large {
-  margin-top: 25vw;
+  margin-top: 38vw;
+
+  @include mq(small) {
+    margin-top: 45vw;
+  }
+
+  @include mq(xsmall) {
+    margin-top: 50vw;
+  }
 }
 
 @mixin container-xlarge {

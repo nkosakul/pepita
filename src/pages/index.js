@@ -2,6 +2,7 @@ import React from 'react';
 import loadable from '@loadable/component';
 import Layout from '../components/Layout';
 import { graphql } from 'gatsby';
+import Imageteaser from '../components/Imageteaser';
 
 export const query = graphql`
   query {
@@ -42,6 +43,8 @@ export default ({ data: { contentfulPage: page } }) => {
 
           return <Component props={element} key={element.id} />;
         })}
+
+        <Imageteaser />
       </Layout>
     </>
   );

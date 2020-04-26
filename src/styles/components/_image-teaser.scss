@@ -1,0 +1,127 @@
+.image-teaser {
+  @include container-medium;
+  @include module-space;
+
+  position: relative;
+
+  &--large-space {
+    @include module-space-large;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+
+    @include mq(xsmall) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__image {
+    width: 40%;
+
+    @include mq(xsmall) {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    img {
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__context {
+    width: 60%;
+    padding-top: 140px;
+    padding-left: 70px;
+
+    @include mq(xlarge) {
+      padding-top: 60px;
+      padding-left: 40px;
+    }
+
+    @include mq(large) {
+      padding-left: 40px;
+    }
+
+    @include mq(xsmall) {
+      width: 100%;
+      padding-top: 50px;
+      padding-left: 0;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin-left: -70px;
+    transform: translateX(-95px);
+
+    @include mq(xlarge) {
+      transform: translateX(-65px);
+    }
+
+    @include mq(large) {
+      margin-left: -60px;
+      transform: translateX(-40px);
+    }
+
+    @include mq(small) {
+      transform: translateX(-23px);
+    }
+
+    @include mq(xsmall) {
+      transform: initial;
+      margin-left: 0;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -40px;
+      display: block;
+      width: 224px;
+      height: 12px;
+      background-color: $c-red;
+
+      @include mq(large) {
+        bottom: -20px;
+        left: -25px;
+        height: 8px;
+      }
+
+      @include mq(xsmall) {
+        left: 0;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 65px;
+    max-width: 440px;
+    font-weight: $f-weight-light;
+    font-size: 36px;
+    line-height: 50px;
+    text-transform: uppercase;
+
+    @include mq(large) {
+      margin-top: 50px;
+      font-size: 24px;
+      line-height: 33px;
+    }
+
+    @include mq(xsmall) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  .button {
+    margin-top: 45px;
+
+    @include mq(xsmall) {
+      margin-top: 35px;
+    }
+  }
+}

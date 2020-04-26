@@ -35,12 +35,18 @@ h3,
   z-index: -1;
   text-align: left;
   font-weight: $f-weight-bold;
-  font-size: 21vw;
-  line-height: 19vw;
+  font-size: calc(20vw - 25px);
+  line-height: 18vw;
   letter-spacing: 13px;
   text-transform: uppercase;
   color: black;
   mix-blend-mode: normal;
   opacity: 0.13;
-  transform: translateY(-50%);
+  transform: translateY(-80%);
+
+  @include mq(xsmall) {
+    font-size: calc(24vw - 25px);
+    line-height: 18vw;
+    letter-spacing: 6px;
+  }
 }

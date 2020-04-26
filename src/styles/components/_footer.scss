@@ -2,10 +2,6 @@
   @include container-medium;
   @include module-space;
 
-  &--large-space {
-    @include module-space-large;
-  }
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,6 +13,18 @@
 
   @include mq(large) {
     padding-bottom: 50px;
+  }
+
+  &--large-space {
+    margin-top: 25vw;
+
+    @include mq(small) {
+      margin-top: 45vw;
+    }
+  }
+
+  .section-heading {
+    transform: translateY(-50%);
   }
 
   &:before {
