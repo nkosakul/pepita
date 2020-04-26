@@ -1,9 +1,14 @@
 const path = require('path');
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const contenfulResult = await graphql(`
+  const contenfulResults = await graphql(`
     query {
       allContentfulPage {
+        nodes {
+          slug
+        }
+      }
+      allContentfulWork {
         nodes {
           slug
         }
@@ -11,11 +16,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `);
 
-  if (contenfulResult.error) {
-    reporter.panic('failed to create pages', contenfulResult.errors);
+  if (contenfulResults.error) {
+    reporter.panic('failed to create pages', contenfulResults.errors);
   }
 
-  const contenfulPages = contenfulResult.data.allContentfulPage.nodes;
+  const contenfulPages = contenfulResults.data.allContentfulPage.nodes;
+
   contenfulPages.forEach((page) => {
     // we dont want to create the index page twice, because we already created this in page/index.js
     if (page.slug !== 'index') {
@@ -27,5 +33,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         },
       });
     }
+  });
+
+  const contenfulWorks = contenfulResults.data.allContentfulWork.nodes;
+
+  contenfulWorks.forEach((work) => {
+    actions.createPage({
+      path: work.slug,
+      component: path.resolve('./src/templates/work.js'),
+      context: {
+        slug: work.slug,
+      },
+    });
   });
 };
