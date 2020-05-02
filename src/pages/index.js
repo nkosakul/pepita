@@ -42,13 +42,11 @@ export const query = graphql`
               title
             }
             oddImage: image {
-              title
               fluid(maxWidth: 700, maxHeight: 950) {
                 ...GatsbyContentfulFluid_withWebp
               }
             }
             evenImage: image {
-              title
               fluid(maxWidth: 965, maxHeight: 765) {
                 ...GatsbyContentfulFluid_withWebp
               }
@@ -71,13 +69,31 @@ export const query = graphql`
             title
           }
           oddImage: image {
-            title
             fluid(maxWidth: 700, maxHeight: 950) {
               ...GatsbyContentfulFluid_withWebp
             }
           }
           evenImage: image {
+            fluid(maxWidth: 965, maxHeight: 765) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
+        ... on ContentfulAboutteaser {
+          __typename
+          id
+          heading
+          showHeading
+          slug
+          linktext
+          title
+          text {
+            text
+          }
+          image {
             title
+          }
+          image {
             fluid(maxWidth: 965, maxHeight: 765) {
               ...GatsbyContentfulFluid_withWebp
             }

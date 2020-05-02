@@ -15,14 +15,14 @@
   display: inline-block;
   padding: 18px 85px 18px 85px;
   overflow: hidden;
-  color: $c-white;
   font-size: 16px;
   line-height: 19px;
+  color: $c-white;
   letter-spacing: 0.3px;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid white;
+  border: 1px solid $c-white;
   border-radius: 50px;
 
   &:visited {
@@ -60,6 +60,26 @@
 
 .button {
   @include button;
+
+  &--small {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+  &--inverted {
+    border-color: $c-red;
+    background-color: $c-red;
+
+    &:hover,
+    &:focus {
+      color: $c-red;
+      border-color: $c-white;
+    }
+
+    &:after {
+      background-color: $c-white;
+    }
+  }
 }
 
 .button--round {

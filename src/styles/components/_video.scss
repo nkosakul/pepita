@@ -9,11 +9,9 @@
   }
 
   &__title {
+    @include h4;
+
     margin-bottom: 40px;
-    font-weight: $f-weight-bold;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: 7px;
   }
 }
 

@@ -57,3 +57,20 @@
     line-height: 30px;
   }
 }
+
+@mixin h4 {
+  @include font($f-family, $f-weight-bold, 24px, 28px);
+
+  letter-spacing: 7px;
+  text-transform: uppercase;
+
+  @include mq(large) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @include mq(small) {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}

@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 
 const ImageteaserItem = ({ item, imageLeft }) => {
+  // In case that the user put a slash before the relative-url
   const slug = item.slug[0] === '/' ? item.slug.slice(1) : item.slug;
 
   return (
@@ -14,7 +15,7 @@ const ImageteaserItem = ({ item, imageLeft }) => {
       <div className="image-teaser__inner">
         <div className="image-teaser__image">
           <Image
-            fluid={imageLeft ? item.evenImage.fluid : item.oddImage.fluid}
+            fluid={!imageLeft ? item.evenImage.fluid : item.oddImage.fluid}
             alt={item.image.title}
           />
         </div>
