@@ -23,7 +23,82 @@ export const query = graphql`
         ... on ContentfulVideo {
           __typename
           id
+          heading
           youtubeUrl
+          showHeading
+        }
+        ... on ContentfulWorkteaser {
+          __typename
+          id
+          heading
+          showHeading
+          works {
+            id
+            slug
+            title
+            teasertext {
+              teasertext
+            }
+            image {
+              title
+            }
+            oddImage: image {
+              fluid(maxWidth: 700, maxHeight: 950) {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
+            evenImage: image {
+              fluid(maxWidth: 965, maxHeight: 765) {
+                ...GatsbyContentfulFluid_withWebp
+              }
+            }
+          }
+        }
+        ... on ContentfulImageteaser {
+          __typename
+          id
+          heading
+          showHeading
+          slug
+          linktext
+          title
+          imagePosition
+          teasertext {
+            teasertext
+          }
+          image {
+            title
+          }
+          oddImage: image {
+            fluid(maxWidth: 700, maxHeight: 950) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+          evenImage: image {
+            fluid(maxWidth: 965, maxHeight: 765) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
+        ... on ContentfulAboutteaser {
+          __typename
+          id
+          heading
+          showHeading
+          slug
+          linktext
+          title
+          text {
+            text
+          }
+          image {
+            title
+          }
+          image {
+            fluid(maxWidth: 965, maxHeight: 765) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
         }
       }
     }

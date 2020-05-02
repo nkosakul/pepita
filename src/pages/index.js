@@ -25,6 +25,7 @@ export const query = graphql`
           id
           heading
           youtubeUrl
+          showHeading
         }
         ... on ContentfulWorkteaser {
           __typename

@@ -29,7 +29,7 @@ const Video = ({ props }) => {
 
   return (
     <section className="video-player">
-      {props.heading && (
+      {props.showHeading && (
         <h2 className="video-player__title">{props.heading}</h2>
       )}
       <div className="video-player__inner">
