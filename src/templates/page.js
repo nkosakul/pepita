@@ -129,12 +129,15 @@ export default ({ data: { contentfulPage: page } }) => {
   return (
     <>
       <Layout>
-        {page.elements.map((element) => {
-          const typename = element.__typename.replace('Contentful', '');
-          const Component = loadable(() => import(`../components/${typename}`));
+        {page.elements &&
+          page.elements.map((element) => {
+            const typename = element.__typename.replace('Contentful', '');
+            const Component = loadable(() =>
+              import(`../components/${typename}`)
+            );
 
-          return <Component props={element} key={element.id} />;
-        })}
+            return <Component props={element} key={element.id} />;
+          })}
       </Layout>
     </>
   );
