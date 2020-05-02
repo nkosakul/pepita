@@ -100,6 +100,26 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulTextmedia {
+          __typename
+          id
+          title
+          text {
+            text
+          }
+        }
+        ... on ContentfulImageGallery {
+          __typename
+          id
+          heading
+          showHeading
+          images {
+            id
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
