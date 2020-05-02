@@ -40,23 +40,27 @@ const Header = () => {
           aria-label="main"
         >
           <ul className="navigation__list">
-            {data.pages.nodes.map((page) => (
-              <li
-                role="presentation"
-                className="navigation__list-item"
-                key={page.slug}
-              >
-                <Link
-                  to={`/${page.slug}/`}
-                  itemProp="url"
-                  role="menuitem"
-                  className="navigation__link"
-                  activeClassName="navigation__link--is-active"
-                >
-                  <span itemProp="name">{page.pageTitle}</span>
-                </Link>
-              </li>
-            ))}
+            {data.pages.nodes.map((page) => {
+              return (
+                page.showInNavigation && (
+                  <li
+                    role="presentation"
+                    className="navigation__list-item"
+                    key={page.slug}
+                  >
+                    <Link
+                      to={`/${page.slug}/`}
+                      itemProp="url"
+                      role="menuitem"
+                      className="navigation__link"
+                      activeClassName="navigation__link--is-active"
+                    >
+                      <span itemProp="name">{page.pageTitle}</span>
+                    </Link>
+                  </li>
+                )
+              );
+            })}
             <li
               role="presentation"
               className="navigation__list-item navigation__list-item--contact"
