@@ -16,12 +16,12 @@ const Imageteaser = ({ props }) => {
           props.works.map((work, index) => (
             <ImageteaserItem
               item={work}
-              imageLeft={(index + 1) % 2 === 0}
+              imageLeft={(index + 1) % 2 !== 0}
               key={work.id}
             />
           ))
         ) : (
-          <ImageteaserItem item={props} imageLeft={props.ImagePosition} />
+          <ImageteaserItem item={props} imageLeft={props.imagePosition} />
         )}
       </section>
     </>

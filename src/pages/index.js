@@ -63,6 +63,7 @@ export const query = graphql`
           slug
           linktext
           title
+          imagePosition
           teasertext {
             teasertext
           }
