@@ -43,7 +43,8 @@
     "plyr-react": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-masonry-layout": "^0.4.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

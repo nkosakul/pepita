@@ -113,8 +113,10 @@ export const query = graphql`
           id
           heading
           showHeading
+          teaserText
           images {
             id
+            title
             fluid {
               ...GatsbyContentfulFluid_withWebp
             }
