@@ -18,8 +18,7 @@
   },
   "lint-staged": {
     "src/**/*.scss": [
-      "prettier --single-quote --parser=scss --write",
-      "stylelint --syntax=scss --fix"
+      "prettier --single-quote --parser=scss --write"
     ],
     "src/**/*.js": [
       "eslint --fix"
