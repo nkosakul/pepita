@@ -47,7 +47,7 @@
     background-color: transparent;
 
     &:hover,
-    &:focus {
+    &.focus-visible {
       background: none;
 
       &:before {

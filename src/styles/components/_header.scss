@@ -5,6 +5,11 @@
   width: 100%;
   z-index: 2;
 
+  &.is-active {
+    position: fixed;
+    height: 100%;
+  }
+
   &::after {
     content: '';
     width: 100%;
@@ -17,28 +22,116 @@
       rgba(0, 0, 0, 0.5) 0%,
       rgba(255, 255, 255, 0) 100%
     );
-    z-index: -1;
+    z-index: -2;
   }
 
   &__inner {
-    @include container-medium;
+    @include container-large;
 
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding-top: 30px;
     padding-bottom: 30px;
+
+    @include mq(xlarge) {
+      align-items: center;
+    }
+  }
+
+  .logo {
+    a {
+      display: block;
+    }
+
+    img {
+      @include mq(xlarge) {
+        width: 150px;
+      }
+
+      @include mq(small) {
+        width: 100px;
+      }
+    }
+  }
+
+  .menu-button {
+    display: none;
+
+    @include mq(xlarge) {
+      display: flex;
+    }
+  }
+
+  & + *:not(.jumbotron) {
+    margin-top: 130px * 2;
   }
 }
 
 .navigation {
+  $navRoot: &;
+
+  @include mq(xlarge) {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-color: rgba(34, 34, 34, 0.85);
+    padding-top: 110px;
+  }
+
+  @include mq(small) {
+    padding-top: 80px;
+  }
+
+  &.is-active {
+    @include mq(xlarge) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #{$navRoot}__list {
+      animation: fadeIn 500ms forwards;
+      animation-delay: 250ms;
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
   &__list {
     display: flex;
     align-items: center;
+
+    @include mq(xlarge) {
+      flex-direction: column;
+      opacity: 0;
+    }
   }
 
   &__list-item {
     margin-left: 50px;
+
+    @include mq(xlarge) {
+      margin-top: 30px;
+      margin-left: 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
   }
 
   &__link {
@@ -47,5 +140,17 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 3.3px;
+
+    &--is-active {
+      @include link-hover('span', true);
+    }
+  }
+}
+
+body {
+  &.prevent-scroll {
+    @include mq(xlarge) {
+      overflow: hidden;
+    }
   }
 }

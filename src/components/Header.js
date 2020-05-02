@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Header = () => {
+  const [menuState, setMenuState] = useState(false);
+
+  function toggleMenu() {
+    setMenuState(!menuState);
+
+    if (menuState) {
+      document.querySelector('body').classList.remove('prevent-scroll');
+    } else {
+      document.querySelector('body').classList.add('prevent-scroll');
+    }
+  }
+
   const data = useStaticQuery(graphql`
     query {
       pages: allContentfulPage(sort: { fields: createdAt }) {
@@ -17,7 +29,7 @@ const Header = () => {
   `);
 
   return (
-    <header className="header">
+    <header className={`header ${menuState && 'is-active'}`}>
       <div className="header__inner">
         <div
           className="logo"
@@ -33,8 +45,21 @@ const Header = () => {
           </Link>
         </div>
 
+        <button
+          className={`menu-button ${menuState && 'is-active'}`}
+          aria-label="Menü ein-/ und ausklappen"
+          onClick={toggleMenu}
+        >
+          <span className="sr-only">Menü ein-/ und ausklappen</span>
+          <span className="menu-button__icon" aria-hidden="true">
+            <span className="menu-button__icon-bar"></span>
+            <span className="menu-button__icon-bar"></span>
+            <span className="menu-button__icon-bar"></span>
+          </span>
+        </button>
+
         <nav
-          className="navigation"
+          className={`navigation ${menuState && 'is-active'}`}
           itemScope
           itemType="http://schema.org/SiteNavigationElement"
           aria-label="main"

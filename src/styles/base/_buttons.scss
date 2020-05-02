@@ -30,7 +30,7 @@
   }
 
   &:hover,
-  &:focus {
+  &.focus-visible {
     border-color: $c-red;
 
     &:after {
@@ -71,7 +71,7 @@
     background-color: $c-red;
 
     &:hover,
-    &:focus {
+    &.focus-visible {
       color: $c-red;
       border-color: $c-white;
     }
@@ -99,7 +99,7 @@
   }
 
   &:hover,
-  &:focus {
+  &.focus-visible {
     border-color: $c-red;
 
     &:after {
@@ -119,5 +119,98 @@
     border-radius: 50%;
     transform: scale(0);
     transition: transform 150ms ease-in-out;
+  }
+}
+
+.menu-button {
+  $menuBtnRoot: &;
+  @include reset-btn;
+
+  display: flex;
+  align-items: center;
+
+  &:hover,
+  &.focus-visible {
+    #{$menuBtnRoot}__icon-bar {
+      background-color: $c-red;
+    }
+  }
+
+  &.is-active {
+    #{$menuBtnRoot}__icon-bar {
+      &:nth-child(1) {
+        top: -3px;
+        left: 8px;
+        transform: rotate(45deg);
+
+        @include mq(medium) {
+          top: -2px;
+          left: 5px;
+        }
+      }
+
+      &:nth-child(2) {
+        width: 0;
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        top: 39px;
+        left: 8px;
+        transform: rotate(-45deg);
+
+        @include mq(medium) {
+          top: 26px;
+          left: 5px;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    position: relative;
+    width: 60px;
+    height: 33px;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+
+    @include mq(medium) {
+      width: 40px;
+      height: 22px;
+    }
+  }
+
+  &__icon-bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $c-white;
+    transform: rotate(0deg);
+    opacity: 1;
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0;
+      transform-origin: left center;
+    }
+
+    &:nth-child(2) {
+      top: 15px;
+      transform-origin: left center;
+
+      @include mq(medium) {
+        top: 10px;
+      }
+    }
+
+    &:nth-child(3) {
+      top: 30px;
+      transform-origin: left center;
+
+      @include mq(medium) {
+        top: 20px;
+      }
+    }
   }
 }

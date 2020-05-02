@@ -27,6 +27,7 @@
   "dependencies": {
     "@loadable/component": "^5.12.0",
     "dotenv": "^8.2.0",
+    "focus-visible": "^5.1.0",
     "gatsby": "^2.20.36",
     "gatsby-image": "^2.3.5",
     "gatsby-plugin-loadable-components-ssr": "^2.0.0",

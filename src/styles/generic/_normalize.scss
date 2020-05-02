@@ -109,6 +109,17 @@ a:visited {
   color: inherit;
 }
 
+a,
+button {
+  &:focus {
+    outline: none;
+  }
+
+  &.focus-visible {
+    outline: 2px dotted white;
+  }
+}
+
 // Forms //--------------------------------------------------------------------
 button,
 input,

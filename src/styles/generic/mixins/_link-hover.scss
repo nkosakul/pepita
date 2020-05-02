@@ -4,25 +4,29 @@
   background-repeat: no-repeat;
   background-size: 0 100%;
   transition: background-size 0.4s ease;
+
+  @if $defaultActive == true {
+    background-size: 100% 100%;
+  }
 }
 
 @mixin link-hover-hover() {
   background-size: 100% 100%;
 }
 
-@mixin link-hover($selector: '', $color: currentColor) {
+@mixin link-hover($selector: '', $defaultActive: false, $color: currentColor) {
   $selector: unquote($selector);
 
   @if $selector == '' {
-    @include link-hover-default($color);
+    @include link-hover-default($defaultActive, $color);
   } @else {
     #{$selector} {
-      @include link-hover-default($color);
+      @include link-hover-default($defaultActive, $color);
     }
   }
 
   &:hover,
-  &:focus {
+  &.focus-visible {
     color: $c-red;
 
     @if $selector == '' {
