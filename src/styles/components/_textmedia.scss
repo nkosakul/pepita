@@ -1,4 +1,9 @@
 .textmedia {
   @include container-large;
   @include module-space;
+
+  // h2 in textmedia should look like a h4
+  h2 {
+    @include h4;
+  }
 }
