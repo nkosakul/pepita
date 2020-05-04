@@ -135,6 +135,15 @@ export const query = graphql`
           title
           images {
             title
+            description
+            file {
+              details {
+                image {
+                  width
+                  height
+                }
+              }
+            }
             fluid(maxHeight: 440) {
               aspectRatio
               ...GatsbyContentfulFluid_withWebp

@@ -47,7 +47,8 @@
     "react-dom": "^16.13.1",
     "react-flickity-component": "^3.5.0",
     "react-helmet": "^6.0.0",
-    "react-masonry-layout": "^0.4.0"
+    "react-masonry-layout": "^0.4.0",
+    "react-pswp": "^0.0.5"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

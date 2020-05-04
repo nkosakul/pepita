@@ -38,6 +38,13 @@
     }
   }
 
+  &__button {
+    @include reset-btn;
+
+    display: block;
+    width: 100%;
+  }
+
   .flickity-button {
     background: none !important;
     padding: 0;
