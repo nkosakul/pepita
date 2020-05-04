@@ -123,6 +123,18 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulImageSlider {
+          __typename
+          id
+          title
+          images {
+            title
+            fluid(maxHeight: 440) {
+              aspectRatio
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
@@ -133,12 +145,15 @@ export default ({ data: { contentfulWork: page } }) => {
     <>
       <Layout>
         <Introheader props={page} />
-        {page.elements.map((element) => {
-          const typename = element.__typename.replace('Contentful', '');
-          const Component = loadable(() => import(`../components/${typename}`));
+        {page.elements &&
+          page.elements.map((element) => {
+            const typename = element.__typename.replace('Contentful', '');
+            const Component = loadable(() =>
+              import(`../components/${typename}`)
+            );
 
-          return <Component props={element} key={element.id} />;
-        })}
+            return <Component props={element} key={element.id} />;
+          })}
       </Layout>
     </>
   );

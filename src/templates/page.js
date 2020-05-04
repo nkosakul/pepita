@@ -129,6 +129,18 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulImageSlider {
+          __typename
+          id
+          title
+          images {
+            title
+            fluid(maxHeight: 440) {
+              aspectRatio
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
