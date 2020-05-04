@@ -105,8 +105,15 @@ export const query = graphql`
           id
           title
           text {
-            text
+            json
           }
+          image {
+            title
+            fluid {
+              src
+            }
+          }
+          youtubeUrl
         }
         ... on ContentfulImageGallery {
           __typename

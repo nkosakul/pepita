@@ -6,4 +6,29 @@
   h2 {
     @include h4;
   }
+
+  p {
+    margin-top: 25px;
+  }
+
+  &__text {
+    max-width: 780px + 100 * 2;
+    padding-right: 100px;
+    padding-left: 100px;
+
+    @include mq(large) {
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+
+    @include mq(small) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  &__image,
+  &__video {
+    @include module-space-small;
+  }
 }

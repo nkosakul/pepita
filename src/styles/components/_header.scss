@@ -48,7 +48,7 @@
     }
   }
 
-  & + *:not(.jumbotron) {
+  & + *:not(.jumbotron):not(.intro-header) {
     margin-top: 130px * 2;
 
     @include mq(xlarge) {

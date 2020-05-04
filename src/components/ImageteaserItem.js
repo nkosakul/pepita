@@ -20,7 +20,10 @@ const ImageteaserItem = ({ item, imageLeft }) => {
           />
         </div>
         <div className="image-teaser__context">
-          <h3 className="image-teaser__title">{item.title}</h3>
+          <h3
+            className="image-teaser__title"
+            dangerouslySetInnerHTML={{ __html: item.title }}
+          ></h3>
           <p className="image-teaser__text">{item.teasertext.teasertext}</p>
           {item.slug && (
             <Link to={`/${slug}/`} className="button">

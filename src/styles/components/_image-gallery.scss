@@ -39,6 +39,21 @@
     }
   }
 
+  &__title {
+    @include h4;
+
+    margin-bottom: 30px;
+    padding-left: 40px;
+
+    @include mq(small) {
+      padding-left: 30px;
+    }
+
+    @include mq(xsmall) {
+      padding-left: 0;
+    }
+  }
+
   &__text {
     @include h3;
 

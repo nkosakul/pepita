@@ -44,8 +44,10 @@
 @import 'components/header';
 @import 'components/textmedia';
 @import 'components/image-gallery';
+@import 'components/intro-header';
 
 // JS Modules //---------------------------------------------------------------
+@import 'components/flickity';
 
 // Print //--------------------------------------------------------------------
 @media print {
