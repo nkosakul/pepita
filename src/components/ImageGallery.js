@@ -52,7 +52,7 @@ const ImageGallery = ({ props }) => {
             {props.images.map((image, index) => (
               <div key={`image-${index}`} className="image-gallery__item">
                 <button
-                  className="image-gallery__button"
+                  className="lightbox-button"
                   onClick={() => openLightbox(index)}
                 >
                   <Image fluid={image.fluid} alt={image.title} />

@@ -57,7 +57,7 @@ const ImageSlider = ({ props }) => {
           <Flickity options={flickityOptions} flickityRef={(c) => (flkty = c)}>
             {props.images.map((image, index) => (
               <div className="image-slider__image" key={`image-${index}`}>
-                <button className="image-slider__button">
+                <button className="lightbox-button">
                   <Img
                     fluid={image.fluid}
                     objectFit="cover"
