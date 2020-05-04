@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Flickity from 'react-flickity-component';
 import Img from 'gatsby-image/withIEPolyfill';
 import { PhotoSwipe } from 'react-pswp';
-import 'react-pswp/dist/index.css';
 
 const ImageSlider = ({ props }) => {
   const [index, setIndex] = useState(null);
@@ -33,7 +32,7 @@ const ImageSlider = ({ props }) => {
     title: image.description ? image.description : '',
   }));
 
-  const toggle = (index) => {
+  const openLightbox = (index) => {
     setIndex(index);
     setOpen(true);
   };
@@ -46,7 +45,7 @@ const ImageSlider = ({ props }) => {
         cellElement,
         cellIndex
       ) {
-        toggle(cellIndex);
+        openLightbox(cellIndex);
       });
   }, [flkty]);
 

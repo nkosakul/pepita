@@ -39,6 +39,17 @@
     }
   }
 
+  &__button {
+    @include reset-btn;
+
+    display: block;
+    width: 100%;
+
+    &.focus-visible {
+      border: 2px dotted white;
+    }
+  }
+
   &__title {
     @include h4;
 

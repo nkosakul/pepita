@@ -121,6 +121,9 @@ export const query = graphql`
             fluid {
               ...GatsbyContentfulFluid_withWebp
             }
+            lightboxImage: fluid {
+              src
+            }
           }
         }
         ... on ContentfulImageSlider {
@@ -139,7 +142,6 @@ export const query = graphql`
               }
             }
             fluid(maxHeight: 440) {
-              src
               ...GatsbyContentfulFluid_withWebp
             }
             lightboxImage: fluid {

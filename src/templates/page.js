@@ -124,8 +124,20 @@ export const query = graphql`
           images {
             id
             title
+            description
+            file {
+              details {
+                image {
+                  width
+                  height
+                }
+              }
+            }
             fluid {
               ...GatsbyContentfulFluid_withWebp
+            }
+            lightboxImage: fluid {
+              src
             }
           }
         }
@@ -145,8 +157,10 @@ export const query = graphql`
               }
             }
             fluid(maxHeight: 440) {
-              aspectRatio
               ...GatsbyContentfulFluid_withWebp
+            }
+            lightboxImage: fluid {
+              src
             }
           }
         }
