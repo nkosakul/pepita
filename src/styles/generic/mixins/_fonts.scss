@@ -41,6 +41,24 @@
   }
 }
 
+@mixin h2-small {
+  @include font($f-family, $f-weight-bold, 58px, 62px);
+
+  letter-spacing: normal;
+  font-style: italic;
+  text-transform: inherit;
+
+  @include mq(xlarge) {
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  @include mq(small) {
+    font-size: 38px;
+    line-height: 42px;
+  }
+}
+
 @mixin h3 {
   @include font($f-family, $f-weight-bold, 65px, 69px);
 
@@ -70,7 +88,8 @@
   }
 
   @include mq(small) {
-    font-size: 22px;
-    line-height: 26px;
+    letter-spacing: 3px;
+    font-size: 20px;
+    line-height: 24px;
   }
 }

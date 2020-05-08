@@ -1,0 +1,41 @@
+.image-banner {
+  @include container-xlarge;
+  @include module-space;
+
+  position: relative;
+
+  &__inner {
+    @include container-large;
+  }
+
+  &__context {
+    @include container-text;
+
+    position: absolute;
+    bottom: 60px;
+    z-index: 1;
+    max-width: initial;
+
+    @include mq(xlarge) {
+      bottom: 40px;
+    }
+
+    @include mq(small) {
+      bottom: 30px;
+    }
+  }
+
+  &__title {
+    @include h2-small;
+
+    margin-top: 40px;
+
+    @include mq(xlarge) {
+      margin-top: 20px;
+    }
+  }
+
+  &__subtitle {
+    @include h4;
+  }
+}

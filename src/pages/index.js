@@ -165,18 +165,30 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulImageBanner {
+          __typename
+          id
+          title
+          subtitle
+          image {
+            title
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
 `;
 
-export default ({ location, data: { contentfulPage: page } }) => {
+export default ({ data: { contentfulPage: page } }) => {
   const showFooterHeading = true;
 
   return (
     <>
       <Layout showFooterHeading={showFooterHeading}>
-        <SEO pageUrl={location.href} />
+        <SEO />
         {page.elements.map((element) => {
           const typename = element.__typename.replace('Contentful', '');
           const Component = loadable(() => import(`../components/${typename}`));

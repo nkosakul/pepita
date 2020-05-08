@@ -159,19 +159,31 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulImageBanner {
+          __typename
+          id
+          title
+          subtitle
+          image {
+            title
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
 `;
 
-export default ({ pageContext, location, data: { contentfulWork: page } }) => {
+export default ({ pageContext, data: { contentfulWork: page } }) => {
   return (
     <>
       <Layout>
         <SEO
           pageTitle={pageContext.pageTitle}
           pageDescription={pageContext.pageTitle}
-          pageUrl={location.href}
+          pageUrl={pageContext.slug}
         />
         <Introheader props={page} />
         {page.elements &&

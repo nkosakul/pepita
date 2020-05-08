@@ -10,8 +10,10 @@
 
   &__title {
     @include h4;
+    @include container-text;
 
     margin-bottom: 40px;
+    max-width: initial;
   }
 
   &__iframe {
