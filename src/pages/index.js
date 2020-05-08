@@ -177,6 +177,18 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulBlockquoteSlider {
+          __typename
+          id
+          title
+          blockquotes {
+            author
+            position
+            quote {
+              json
+            }
+          }
+        }
       }
     }
   }
