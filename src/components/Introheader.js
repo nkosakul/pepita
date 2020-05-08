@@ -7,16 +7,11 @@ const Introheader = ({ props }) => (
       <Img
         fluid={props.image.fluid}
         objectFit="cover"
-        alt={props.image.title}
+        alt={props.image.pageTitle}
       />
     </div>
     <div className="intro-header__inner">
-      <h1
-        className="intro-header__title"
-        dangerouslySetInnerHTML={{
-          __html: props.title,
-        }}
-      ></h1>
+      <h1 className="intro-header__title">{props.pageTitle}</h1>
     </div>
   </div>
 );

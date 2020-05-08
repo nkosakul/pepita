@@ -3,11 +3,12 @@ import loadable from '@loadable/component';
 import Layout from '../components/Layout';
 import Introheader from '../components/Introheader';
 import { graphql } from 'gatsby';
+import SEO from '../components/Seo';
 
 export const query = graphql`
   query($slug: String!) {
     contentfulWork(slug: { eq: $slug }) {
-      title
+      pageTitle
       image {
         title
         fluid {
@@ -30,7 +31,7 @@ export const query = graphql`
           works {
             id
             slug
-            title
+            pageTitle
             teasertext {
               teasertext
             }
@@ -163,10 +164,15 @@ export const query = graphql`
   }
 `;
 
-export default ({ data: { contentfulWork: page } }) => {
+export default ({ pageContext, location, data: { contentfulWork: page } }) => {
   return (
     <>
       <Layout>
+        <SEO
+          pageTitle={pageContext.pageTitle}
+          pageDescription={pageContext.pageTitle}
+          pageUrl={location.href}
+        />
         <Introheader props={page} />
         {page.elements &&
           page.elements.map((element) => {

@@ -6,11 +6,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allContentfulPage {
         nodes {
           slug
+          pageTitle
         }
       }
       allContentfulWork {
         nodes {
           slug
+          pageTitle
         }
       }
     }
@@ -30,6 +32,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         component: path.resolve('./src/templates/page.js'),
         context: {
           slug: page.slug,
+          pageTitle: page.pageTitle,
         },
       });
     }
@@ -43,6 +46,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: path.resolve('./src/templates/work.js'),
       context: {
         slug: work.slug,
+        pageTitle: work.pageTitle,
       },
     });
   });

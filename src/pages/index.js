@@ -1,6 +1,7 @@
 import React from 'react';
 import loadable from '@loadable/component';
 import Layout from '../components/Layout';
+import SEO from '../components/Seo';
 import { graphql } from 'gatsby';
 
 export const query = graphql`
@@ -35,7 +36,7 @@ export const query = graphql`
           works {
             id
             slug
-            title
+            pageTitle
             teasertext {
               teasertext
             }
@@ -169,12 +170,13 @@ export const query = graphql`
   }
 `;
 
-export default ({ data: { contentfulPage: page } }) => {
+export default ({ location, data: { contentfulPage: page } }) => {
   const showFooterHeading = true;
 
   return (
     <>
       <Layout showFooterHeading={showFooterHeading}>
+        <SEO pageUrl={location.href} />
         {page.elements.map((element) => {
           const typename = element.__typename.replace('Contentful', '');
           const Component = loadable(() => import(`../components/${typename}`));
