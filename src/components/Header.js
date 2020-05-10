@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -27,6 +27,10 @@ const Header = () => {
       }
     }
   `);
+
+  useEffect(() => {
+    document.querySelector('body').classList.remove('prevent-scroll');
+  }, []);
 
   return (
     <header className={`header ${menuState && 'is-active'}`}>
