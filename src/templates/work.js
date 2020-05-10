@@ -192,11 +192,7 @@ export default ({ pageContext, data: { contentfulWork: page } }) => {
   return (
     <>
       <Layout>
-        <SEO
-          pageTitle={pageContext.pageTitle}
-          pageDescription={pageContext.pageTitle}
-          pageUrl={pageContext.slug}
-        />
+        <SEO pageTitle={pageContext.pageTitle} pageUrl={pageContext.slug} />
         <Introheader props={page} />
         {page.elements &&
           page.elements.map((element) => {

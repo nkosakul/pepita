@@ -198,11 +198,7 @@ export default ({ pageContext, data: { contentfulPage: page } }) => {
   return (
     <>
       <Layout>
-        <SEO
-          pageTitle={pageContext.pageTitle}
-          pageDescription={pageContext.pageTitle}
-          pageUrl={pageContext.slug}
-        />
+        <SEO pageTitle={pageContext.pageTitle} pageUrl={pageContext.slug} />
         {page.elements &&
           page.elements.map((element) => {
             const typename = element.__typename.replace('Contentful', '');
