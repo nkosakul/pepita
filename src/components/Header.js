@@ -17,7 +17,7 @@ const Header = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      pages: allContentfulPage(sort: { fields: createdAt }) {
+      pages: allContentfulPage(sort: { fields: [createdAt], order: ASC }) {
         nodes {
           slug
           pageTitle

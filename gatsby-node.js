@@ -3,13 +3,13 @@ const path = require('path');
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const contenfulResults = await graphql(`
     query {
-      allContentfulPage {
+      allContentfulPage(filter: { slug: { ne: "index" } }) {
         nodes {
           slug
           pageTitle
         }
       }
-      allContentfulWork {
+      allContentfulWork(filter: { slug: { ne: "example-work" } }) {
         nodes {
           slug
           pageTitle
@@ -25,8 +25,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const contenfulPages = contenfulResults.data.allContentfulPage.nodes;
 
   contenfulPages.forEach((page) => {
-    // we dont want to create the index page twice, because we already created this in page/index.js
-    if (page.slug !== 'index') {
+    // we dont want to create the example page
+    if (page.slug !== 'example') {
       actions.createPage({
         path: page.slug,
         component: path.resolve('./src/templates/page.js'),
