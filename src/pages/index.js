@@ -203,6 +203,17 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulWorklist {
+          __typename
+          id
+          title
+          image {
+            title
+            fluid(maxWidth: 1920, maxHeight: 1080) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
