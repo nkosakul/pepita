@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image/withIEPolyfill';
 
 const Introheader = ({ props }) => (
-  <div className="intro-header">
+  <div className="intro-header" data-header>
     <div className="intro-header__image">
       <Img
         fluid={props.image.fluid}

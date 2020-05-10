@@ -6,7 +6,7 @@ const Jumbotron = ({ props }) => {
   const { facebook, instagram, youtube } = useSiteMetadata();
 
   return (
-    <section className="jumbotron">
+    <section className="jumbotron" data-header>
       <div className="jumbotron__image">
         <Image fluid={props.image.fluid} alt={props.image.title} />
       </div>

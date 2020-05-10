@@ -189,6 +189,20 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulTexthighlight {
+          __typename
+          id
+          title
+          text {
+            json
+          }
+          image {
+            title
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }
