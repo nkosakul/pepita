@@ -10,7 +10,7 @@ const Video = ({ props }) => {
         <div>
           <iframe
             className="video-player__iframe"
-            title="test"
+            title={props.heading}
             src={props.youtubeUrl}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -24,3 +24,4 @@ const Video = ({ props }) => {
 };
 
 export default Video;
+// TODO: use overlay before loading iframe
