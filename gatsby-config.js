@@ -17,6 +17,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-loadable-components-ssr',
+    `gatsby-transformer-json`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -25,11 +26,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: 'gatsby-source-filesystem',
       options: {
-        spaceId: process.env.SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
+        name: 'data',
+        path: 'data',
       },
     },
     {
