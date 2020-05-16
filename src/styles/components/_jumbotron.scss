@@ -1,4 +1,5 @@
 .jumbotron {
+  $jumbotronRoot: &;
   @include container-xlarge;
 
   position: relative;
@@ -13,16 +14,16 @@
     min-height: 100vh;
   }
 
-  .gatsby-image-wrapper {
-    position: static !important;
-  }
-
   &__image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+
+    .gatsby-image-wrapper {
+      position: static !important;
+    }
 
     img {
       position: absolute;
@@ -65,6 +66,33 @@
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  // Coming soon
+  &--coming-soon {
+    #{$jumbotronRoot}__inner {
+      justify-content: flex-start;
+
+      @include mq(small) {
+        align-items: flex-end;
+      }
+    }
+
+    #{$jumbotronRoot}__context {
+      @include container-large;
+
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  .coming-soon-logo {
+    width: 100%;
+    max-width: 530px;
+
+    @include mq(small) {
+      margin-bottom: 20px;
     }
   }
 }
