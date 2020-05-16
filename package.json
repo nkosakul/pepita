@@ -37,7 +37,7 @@
     "gatsby-plugin-sass": "^2.2.4",
     "gatsby-plugin-sharp": "^2.5.7",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
-    "gatsby-source-contentful": "^2.3.5",
+    "gatsby-source-contentful": "^2.2.10",
     "gatsby-source-filesystem": "^2.2.5",
     "gatsby-transformer-sharp": "^2.4.7",
     "intersection-observer": "^0.10.0",
