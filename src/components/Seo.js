@@ -13,7 +13,7 @@ const SEO = ({ pageTitle, pageUrl }) => {
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
       <meta name="generator" content="Gatsby.js"></meta>
-      <meta name="robots" content="index, follow"></meta>
+      <meta name="robots" content="noindex"></meta>
       <meta
         name="keywords"
         content="Pepita Bauhardt, Dancer, Choach, Choreographer, Pepita, Pepita Maria Bauhardt, Bauhardt, Berlin, Dance, Videos, Tanz, tanzen"

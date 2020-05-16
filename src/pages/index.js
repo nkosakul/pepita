@@ -1,238 +1,52 @@
 import React from 'react';
-import loadable from '@loadable/component';
-import Layout from '../components/Layout';
 import SEO from '../components/Seo';
+import Image from 'gatsby-image';
 import { graphql } from 'gatsby';
+import '../styles/index.scss';
 
 export const query = graphql`
   query {
-    contentfulPage(slug: { eq: "index" }) {
-      pageTitle
-      elements {
-        ... on ContentfulJumbotron {
-          __typename
-          id
-          title
-          showSocialmediaIcons
-          image {
-            title
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
+    background: file(relativePath: { eq: "pepita.png" }) {
+      sharp: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
-        ... on ContentfulVideo {
-          __typename
-          id
-          heading
-          youtubeUrl
-          showHeading
-        }
-        ... on ContentfulWorkteaser {
-          __typename
-          id
-          heading
-          showHeading
-          works {
-            id
-            slug
-            pageTitle
-            teasertext {
-              teasertext
-            }
-            image {
-              title
-            }
-            oddImage: image {
-              fluid(maxWidth: 700, maxHeight: 950) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-            evenImage: image {
-              fluid(maxWidth: 965, maxHeight: 765) {
-                ...GatsbyContentfulFluid_withWebp
-              }
-            }
-          }
-        }
-        ... on ContentfulImageteaser {
-          __typename
-          id
-          heading
-          showHeading
-          slug
-          linktext
-          title
-          imagePosition
-          teasertext {
-            teasertext
-          }
-          image {
-            title
-          }
-          oddImage: image {
-            fluid(maxWidth: 700, maxHeight: 950) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-          evenImage: image {
-            fluid(maxWidth: 965, maxHeight: 765) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-        }
-        ... on ContentfulAboutteaser {
-          __typename
-          id
-          heading
-          showHeading
-          slug
-          linktext
-          title
-          text {
-            text
-          }
-          image {
-            title
-          }
-          image {
-            fluid(maxWidth: 965, maxHeight: 765) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-        }
-        ... on ContentfulTextmedia {
-          __typename
-          id
-          title
-          text {
-            json
-          }
-          image {
-            title
-            fluid {
-              src
-            }
-          }
-          youtubeUrl
-        }
-        ... on ContentfulImageGallery {
-          __typename
-          id
-          heading
-          showHeading
-          teaserText
-          images {
-            id
-            title
-            description
-            file {
-              details {
-                image {
-                  width
-                  height
-                }
-              }
-            }
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
-            lightboxImage: fluid {
-              src
-            }
-          }
-        }
-        ... on ContentfulImageSlider {
-          __typename
-          id
-          title
-          images {
-            title
-            description
-            file {
-              details {
-                image {
-                  width
-                  height
-                }
-              }
-            }
-            fluid(maxHeight: 440) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-            lightboxImage: fluid {
-              src
-            }
-          }
-        }
-        ... on ContentfulImageBanner {
-          __typename
-          id
-          title
-          subtitle
-          image {
-            title
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-        }
-        ... on ContentfulBlockquoteSlider {
-          __typename
-          id
-          title
-          blockquotes {
-            author
-            position
-            quote {
-              json
-            }
-          }
-        }
-        ... on ContentfulTexthighlight {
-          __typename
-          id
-          title
-          text {
-            json
-          }
-          image {
-            title
-            fluid {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
-        }
-        ... on ContentfulWorklist {
-          __typename
-          id
-          title
-          image {
-            title
-            fluid(maxWidth: 1920, maxHeight: 1080) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
+      }
+    }
+    comingSoon: file(relativePath: { eq: "coming-soon.png" }) {
+      sharp: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
   }
 `;
 
-export default ({ data: { contentfulPage: page } }) => {
-  const showFooterHeading = true;
-
+export default ({ data }) => {
   return (
     <>
-      <Layout showFooterHeading={showFooterHeading}>
-        <SEO />
-        {page.elements.map((element) => {
-          const typename = element.__typename.replace('Contentful', '');
-          const Component = loadable(() => import(`../components/${typename}`));
+      <SEO />
+      <section className="jumbotron jumbotron--coming-soon" data-header>
+        <div className="jumbotron__image">
+          <Image
+            fluid={data.background.sharp.fluid}
+            alt="Foto von Pepita Maria Bauhardth"
+          />
+        </div>
 
-          return <Component props={element} key={element.id} />;
-        })}
-      </Layout>
+        <div className="jumbotron__inner">
+          <div className="jumbotron__context">
+            <h1 className="sr-only">Coming Soon</h1>
+            <div className="coming-soon-logo">
+              <Image
+                fluid={data.comingSoon.sharp.fluid}
+                alt="Cooming Soon Vektorgrafik"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
