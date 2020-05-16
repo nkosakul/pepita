@@ -1,0 +1,110 @@
+// reset default browser styling
+input,
+textarea {
+  color: $c-white;
+  background: none;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.contact {
+  position: relative;
+  padding-top: 175px;
+  padding-bottom: 175px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include mq(xlarge) {
+    padding-top: 145px;
+    padding-bottom: 145px;
+  }
+
+  @include mq(small) {
+    padding-top: 115px;
+    padding-bottom: 115px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .gatsby-image-wrapper {
+      position: static !important;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__box-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+  }
+
+  &__box {
+    padding: 30px 40px;
+    background: linear-gradient(139.85deg, #323232 -6.53%, #141414 101.3%);
+    box-shadow: 20px 30px 35px rgba(0, 0, 0, 0.324926);
+  }
+
+  .form-field {
+    position: relative;
+    padding-top: 35px;
+
+    &.is-active .form-label {
+      transform: translateY(-100%);
+      font-size: 14px;
+    }
+  }
+
+  .form-label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.3px;
+    transition: all 300ms ease-in-out;
+    will-change: transform;
+  }
+
+  .form-input {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+  }
+
+  .form-textarea {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+  }
+
+  .form-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+
+    @include mq(small) {
+      margin-top: 50px;
+    }
+  }
+}

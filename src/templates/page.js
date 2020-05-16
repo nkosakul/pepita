@@ -214,6 +214,17 @@ export const query = graphql`
             }
           }
         }
+        ... on ContentfulContactform {
+          __typename
+          id
+          title
+          backgroundImage {
+            title
+            fluid(maxWidth: 1920, maxHeight: 1080) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
       }
     }
   }

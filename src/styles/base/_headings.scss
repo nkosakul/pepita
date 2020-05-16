@@ -28,6 +28,11 @@ h3,
   @include h3;
 }
 
+h4,
+.is-h4 {
+  @include h4;
+}
+
 .section-heading {
   position: absolute;
   top: 0;
