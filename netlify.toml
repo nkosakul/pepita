@@ -2,6 +2,6 @@
   package = "netlify-plugin-gatsby-cache"
 
 [[redirects]]
-  from = "/example"
-  to = "/"
+  from = "/*"
+  to = "/coming-soon"
   status = 200
