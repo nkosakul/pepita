@@ -1,3 +1,0 @@
-@function pxtorem($px, $base: var(--font-size)) {
-  @return calc((#{$px} / #{$base}) * 1rem);
-}
