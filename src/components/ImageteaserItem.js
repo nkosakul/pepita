@@ -40,7 +40,12 @@ const ImageteaserItem = ({ item, imageLeft }) => {
             ''
           )}
           {item.slug && isAbsolute ? (
-            <a href={item.slug} className="button">
+            <a
+              href={item.slug}
+              className="button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {item.linktext ? item.linktext : 'more'}
               {!item.linktext && (
                 <span className="sr-only">
