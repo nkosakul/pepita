@@ -1,9 +1,22 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import useSiteMetadata from '../hooks/use-sitemetadata';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const Footer = ({ showFooterHeading = false }) => {
   const { title, email, facebook, instagram, youtube } = useSiteMetadata();
+
+  const data = useStaticQuery(graphql`
+    query {
+      pages: allContentfulPage(sort: { fields: [createdAt], order: ASC }) {
+        nodes {
+          slug
+          pageTitle
+          showInFooter
+        }
+      }
+    }
+  `);
 
   return (
     <footer
@@ -58,16 +71,20 @@ const Footer = ({ showFooterHeading = false }) => {
         </p>
         <nav aria-label="Footer" className="footer__nav">
           <ul className="footer__nav-list">
-            <li className="footer__nav-list-item">
-              <Link to="/impressum/" className="footer__nav-link link-hover">
-                Impressum
-              </Link>
-            </li>
-            <li className="footer__nav-list-item">
-              <Link to="/datenschutz/" className="footer__nav-link link-hover">
-                Datenschutz
-              </Link>
-            </li>
+            {data.pages.nodes.map((page) => {
+              return (
+                page.showInFooter && (
+                  <li className="footer__nav-list-item" key={page.slug}>
+                    <Link
+                      to={`/${page.slug}/`}
+                      className="footer__nav-link link-hover"
+                    >
+                      {page.pageTitle}
+                    </Link>
+                  </li>
+                )
+              );
+            })}
           </ul>
         </nav>
         <p className="footer__info">
