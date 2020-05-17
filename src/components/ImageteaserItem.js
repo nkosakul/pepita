@@ -29,6 +29,12 @@ const ImageteaserItem = ({ item, imageLeft }) => {
           {item.slug && !isAbsolute ? (
             <Link to={`/${slug}/`} className="button">
               {item.linktext ? item.linktext : 'more'}
+
+              {!item.linktext && (
+                <span className="sr-only">
+                  about {item.title || item.pageTitle}
+                </span>
+              )}
             </Link>
           ) : (
             ''
@@ -36,6 +42,11 @@ const ImageteaserItem = ({ item, imageLeft }) => {
           {item.slug && isAbsolute ? (
             <a href={item.slug} className="button">
               {item.linktext ? item.linktext : 'more'}
+              {!item.linktext && (
+                <span className="sr-only">
+                  about {item.title || item.pageTitle}
+                </span>
+              )}
             </a>
           ) : (
             ''
