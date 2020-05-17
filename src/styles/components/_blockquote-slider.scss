@@ -104,26 +104,44 @@
 
     &:hover,
     &.focus-visible {
+      &:before {
+        color: $c-red;
+      }
+
       .flickity-button-icon {
         fill: $c-red;
+      }
+    }
+
+    &:before {
+      @include icon;
+
+      color: $c-white;
+      font-size: 60px;
+
+      @include mq(large) {
+        font-size: 30px;
       }
     }
   }
 
   .flickity-prev-next-button.next {
     right: 0;
+
+    &:before {
+      content: map-get($icons, 'arrow-right');
+    }
   }
 
   .flickity-prev-next-button.previous {
     left: 0;
+
+    &:before {
+      content: map-get($icons, 'arrow-left');
+    }
   }
 
   .flickity-prev-next-button .flickity-button-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    fill: $c-white;
+    display: none;
   }
 }
