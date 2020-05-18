@@ -7,7 +7,7 @@ module.exports = {
     baseUrl: 'https://pepita-testing.netlify.app/', // TODO: use correct url
     email: 'booking@pepitabauhardt.com',
     facebook: 'https://www.facebook.com/pepita.bauhardt/?ref=page_internal',
-    instagram: 'https://www.instagram.com/pepijuno/?hl=de',
+    instagram: 'https://www.instagram.com/pepitabauhardt/',
     youtube:
       'https://www.youtube.com/channel/UCfVMLPpVfi1yAh7CcNuH2Zg/featured',
   },
