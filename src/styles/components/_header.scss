@@ -134,6 +134,10 @@
     text-align: center;
     text-transform: uppercase;
 
+    @include mq(xlarge) {
+      font-size: 26px;
+    }
+
     &--is-active {
       @include link-hover('span', true);
     }

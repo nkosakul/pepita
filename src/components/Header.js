@@ -21,7 +21,6 @@ const Header = () => {
         nodes {
           slug
           pageTitle
-          createdAt
           showInNavigation
         }
       }

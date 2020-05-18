@@ -20,7 +20,7 @@ const Aboutteaser = ({ props }) => {
         <div className="about-teaser__context">
           <h3 className="about-teaser__title">{props.title}</h3>
           <p className="about-teaser__text">{props.text.text}</p>
-          <Link to={`/${slug}/`} className="button button--inverted">
+          <Link to={`/${slug}/`} className="button">
             {props.linktext}
           </Link>
         </div>

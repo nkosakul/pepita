@@ -27,6 +27,12 @@ export const query = graphql`
           heading
           youtubeUrl
           showHeading
+          youtubeThumbnail {
+            title
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
         }
         ... on ContentfulWorkteaser {
           __typename
@@ -115,6 +121,12 @@ export const query = graphql`
             }
           }
           youtubeUrl
+          youtubeThumbnail {
+            title
+            fluid {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
         }
         ... on ContentfulImageGallery {
           __typename

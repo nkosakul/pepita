@@ -23,15 +23,19 @@ const SEO = ({ pageTitle, pageUrl }) => {
       <meta name="og:type" content="website" />
       <meta property="og:site_name" content="Pepita Maria Bauhardt"></meta>
       {/* TODO: add correct favicon */}
-      {/* TODO: add image for page */}
-      <meta property="og:image" content="1200x630"></meta>
+      <meta
+        property="og:image"
+        content={`${baseUrl}images/social-media.png`}
+      ></meta>
       <meta property="og:locale" content="de_DE"></meta>
       <meta property="og:url" content={url}></meta>
       <meta name="twitter:card" content="summary_large_image"></meta>
       <meta name="twitter:title" content={title}></meta>
       <meta name="twitter:description" content={description}></meta>
-      {/* TODO: add image for page */}
-      <meta name="twitter:image" content="1200x630"></meta>
+      <meta
+        name="twitter:image"
+        content={`${baseUrl}images/social-media.png`}
+      ></meta>
       <link rel="canonical" content={url}></link>
     </Helmet>
   );

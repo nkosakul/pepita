@@ -77,3 +77,16 @@
 .textmedia + .image-gallery {
   @include module-space-small;
 }
+
+.pswp {
+  .pswp__caption__center {
+    font-size: 16px;
+    font-weight: $f-weight-bold;
+    max-width: inherit;
+  }
+
+  .pswp__ui--fit .pswp__top-bar,
+  .pswp__ui--fit .pswp__caption {
+    background-color: rgba(34, 34, 34, 0.8);
+  }
+}

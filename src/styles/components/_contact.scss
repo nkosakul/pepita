@@ -69,14 +69,14 @@ textarea {
     padding-top: 35px;
 
     &.is-active .form-label {
-      transform: translateY(-100%);
+      transform: translateY(calc(-100% - 2px));
       font-size: 14px;
     }
   }
 
   .form-label {
     position: absolute;
-    top: 30px;
+    top: 38px;
     left: 0;
     font-size: 16px;
     line-height: 19px;
@@ -104,7 +104,34 @@ textarea {
     margin-top: 100px;
 
     @include mq(small) {
-      margin-top: 50px;
+      margin-top: 90px;
+    }
+  }
+
+  .form-notification-wrapper {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  .form-notification {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+
+    &.is-valid {
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+
+    &.is-error {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
     }
   }
 }

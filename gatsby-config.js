@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Pepita Maria Bauhardt',
     description: 'Pepita Maria Bauhardt - Dancer, Choach and Choreographer',
-    baseUrl: 'https://pepita-testing.netlify.app/', // TODO: use correct url
+    baseUrl: 'https://www.pepitabauhardt.com/',
     email: 'booking@pepitabauhardt.com',
     facebook: 'https://www.facebook.com/pepita.bauhardt/?ref=page_internal',
     instagram: 'https://www.instagram.com/pepitabauhardt/',

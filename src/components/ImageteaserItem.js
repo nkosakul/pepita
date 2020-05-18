@@ -3,7 +3,8 @@ import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 
 const ImageteaserItem = ({ item, imageLeft }) => {
-  // In case that the user put a slash before the relative-url
+  // Catch if user used absolute or relative url
+  const isAbsolute = item.slug.includes('http');
   const slug = item.slug[0] === '/' ? item.slug.slice(1) : item.slug;
 
   return (
@@ -24,10 +25,36 @@ const ImageteaserItem = ({ item, imageLeft }) => {
             {item.title || item.pageTitle}
           </h3>
           <p className="image-teaser__text">{item.teasertext.teasertext}</p>
-          {item.slug && (
+
+          {item.slug && !isAbsolute ? (
             <Link to={`/${slug}/`} className="button">
               {item.linktext ? item.linktext : 'more'}
+
+              {!item.linktext && (
+                <span className="sr-only">
+                  about {item.title || item.pageTitle}
+                </span>
+              )}
             </Link>
+          ) : (
+            ''
+          )}
+          {item.slug && isAbsolute ? (
+            <a
+              href={item.slug}
+              className="button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {item.linktext ? item.linktext : 'more'}
+              {!item.linktext && (
+                <span className="sr-only">
+                  about {item.title || item.pageTitle}
+                </span>
+              )}
+            </a>
+          ) : (
+            ''
           )}
         </div>
       </div>
