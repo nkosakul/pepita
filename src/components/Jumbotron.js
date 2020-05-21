@@ -1,13 +1,30 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'gatsby-image';
 import useSiteMetadata from '../hooks/use-sitemetadata';
+import FromCenter from '../modules/from-center';
 
 const Jumbotron = ({ props }) => {
   const textEl = useRef(null);
   const { facebook, instagram, youtube } = useSiteMetadata();
 
   useEffect(() => {
-    textEl.current.classList.add('fade-in');
+    const text = textEl.current;
+    if (text) {
+      let firstRun = true;
+      new FromCenter(text, 'scroll', ({ percentage, position }) => {
+        if (position === 'above') {
+          text.classList.add('fade-in');
+          firstRun = false;
+        } else if (
+          firstRun &&
+          position === 'inside' &&
+          (parseFloat(percentage) < parseFloat(-0.2) || percentage === 1)
+        ) {
+          text.classList.add('fade-in');
+          firstRun = false;
+        }
+      }).start();
+    }
   }, []);
 
   return (

@@ -40,9 +40,9 @@
     color: $c-white;
     opacity: 0;
     mix-blend-mode: normal;
-    transition: transform 800ms ease-in-out, opacity 800ms ease-in-out;
     will-change: transform;
     transform: translateY(100px);
+    transition: transform 800ms ease-in-out, opacity 800ms ease-in-out;
 
     &.fade-in {
       opacity: 0.4;

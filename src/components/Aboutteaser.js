@@ -12,7 +12,9 @@ const Aboutteaser = ({ props }) => {
       const title = titleEl.current;
       new FromCenter(title, 'scroll', ({ position, offset }) => {
         if (position === 'inside') {
-          title.style.transform = `translateX(${offset}px) translateY(-80%)`;
+          title.style.transform = `translateX(${
+            offset / 3
+          }px) translateY(-80%)`;
         }
       }).start();
     }
