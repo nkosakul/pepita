@@ -5,6 +5,7 @@ html {
   font-size: $f-size;
   font-family: $f-family;
   line-height: 1.4;
+  height: -webkit-fill-available;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 

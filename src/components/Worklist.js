@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image/withIEPolyfill';
+import BackgroundImage from 'gatsby-background-image';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Worklist = ({ props }) => {
@@ -34,43 +34,48 @@ const Worklist = ({ props }) => {
   const workSections = [...new Set(allYears)];
 
   return (
-    <section className="worklist" data-header>
+    <BackgroundImage
+      Tag="section"
+      className="worklist"
+      data-header
+      fluid={props.image.fluid}
+    >
       <h1 className="sr-only">{props.title}</h1>
-      <div className="worklist__image">
-        <Img
-          fluid={props.image.fluid}
-          objectFit="cover"
-          alt={props.image.title}
-        />
+      <div className="worklist__wrapper">
+        <div className="worklist__inner">
+          <ol className="worklist__list">
+            {workSections.map((workSection, index) => (
+              <li
+                className="worklist__list-item"
+                key={`${workSection}-${index}`}
+              >
+                <h2 className="worklist__subtitle">{workSection}</h2>
+                <ol>
+                  {data.allContentfulWork.nodes.map((item) => {
+                    const itemYear = new Date(item.date).getFullYear();
+                    return (
+                      workSection === itemYear && (
+                        <li key={item.date}>
+                          <Link to={item.slug} className="worklist__teaser">
+                            <h3 className="worklist__teaser-title">
+                              {item.pageTitle}
+                            </h3>
+                            <p className="worklist__teaser-text">
+                              {item.teasertext.teasertext}
+                            </p>
+                            <p className="worklist__teaser-tag">{item.role}</p>
+                          </Link>
+                        </li>
+                      )
+                    );
+                  })}
+                </ol>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
-      <ol className="worklist__list">
-        {workSections.map((workSection, index) => (
-          <li className="worklist__list-item" key={`${workSection}-${index}`}>
-            <h2 className="worklist__subtitle">{workSection}</h2>
-            <ol>
-              {data.allContentfulWork.nodes.map((item) => {
-                const itemYear = new Date(item.date).getFullYear();
-                return (
-                  workSection === itemYear && (
-                    <li>
-                      <Link to={item.slug} className="worklist__teaser">
-                        <h3 className="worklist__teaser-title">
-                          {item.pageTitle}
-                        </h3>
-                        <p className="worklist__teaser-text">
-                          {item.teasertext.teasertext}
-                        </p>
-                        <p className="worklist__teaser-tag">{item.role}</p>
-                      </Link>
-                    </li>
-                  )
-                );
-              })}
-            </ol>
-          </li>
-        ))}
-      </ol>
-    </section>
+    </BackgroundImage>
   );
 };
 

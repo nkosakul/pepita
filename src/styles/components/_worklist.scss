@@ -1,6 +1,7 @@
 .worklist {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 
   &__image {
     position: absolute;
@@ -10,21 +11,56 @@
     height: 100%;
   }
 
+  &__wrapper {
+    padding-top: 175px;
+
+    @include mq(xlarge) {
+      padding-top: 142px;
+    }
+
+    @include mq(small) {
+      padding-top: 115px;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    overflow: auto;
+    height: calc(100vh - 175px);
+    z-index: 1;
+    text-align: center;
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    /* As firefox dropped the support for hidden scrollbars without functionality,
+    * we´re using a little workaround by setting the scrollbar-width to none
+    */
+    scrollbar-width: none;
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include mq(xlarge) {
+      height: calc(100vh - 142px);
+    }
+
+    @include mq(small) {
+      height: calc(100vh - 115px);
+    }
+  }
+
   &__list {
     @include container-medium;
 
     max-width: 1040px;
-    position: relative;
-    z-index: 1;
-    padding-top: 130px * 2;
-    text-align: center;
+    padding-top: 85px;
 
     @include mq(xlarge) {
-      padding-top: 80px * 2;
+      padding-top: 18px;
     }
 
     @include mq(small) {
-      padding-top: 65px * 2;
+      padding-top: 15px;
     }
   }
 
@@ -41,6 +77,7 @@
       }
     }
   }
+
   &__subtitle {
     font-weight: $f-weight-bold;
     font-size: 268px;
