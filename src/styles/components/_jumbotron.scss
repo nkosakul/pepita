@@ -38,8 +38,16 @@
   &__context {
     z-index: 1;
     color: $c-white;
-    opacity: 0.4;
+    opacity: 0;
     mix-blend-mode: normal;
+    transition: transform 800ms ease-in-out, opacity 800ms ease-in-out;
+    will-change: transform;
+    transform: translateY(100px);
+
+    &.fade-in {
+      opacity: 0.4;
+      transform: translateY(0);
+    }
   }
 
   &__socialmedia {

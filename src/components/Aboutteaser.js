@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
+import FromCenter from '../modules/from-center';
 
 const Aboutteaser = ({ props }) => {
+  const titleEl = useRef(null);
+
+  useEffect(() => {
+    // Fade-In Animation
+    if (titleEl.current) {
+      const title = titleEl.current;
+      new FromCenter(title, 'scroll', ({ position, offset }) => {
+        if (position === 'inside') {
+          title.style.transform = `translateX(${offset}px) translateY(-80%)`;
+        }
+      }).start();
+    }
+  }, []);
+
   const slug = props.slug[0] === '/' ? props.slug.slice(1) : props.slug;
   return (
     <section
@@ -11,7 +26,9 @@ const Aboutteaser = ({ props }) => {
       }`}
     >
       {props.showHeading && (
-        <h2 className="section-heading">{props.heading}</h2>
+        <h2 className="section-heading" ref={titleEl}>
+          {props.heading}
+        </h2>
       )}
       <div className="about-teaser__inner">
         <div className="about-teaser__image">

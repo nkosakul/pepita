@@ -21,6 +21,9 @@
     padding-bottom: 40px;
     width: 25%;
     padding-left: 40px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
 
     @include mq(large) {
       width: 33.33%;
@@ -36,6 +39,11 @@
       width: 100%;
       padding-left: 0;
       padding-bottom: 25px;
+    }
+
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

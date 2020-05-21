@@ -13,6 +13,17 @@
     @include module-space;
   }
 
+  &__item {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   &__inner {
     display: flex;
     justify-content: center;
@@ -25,14 +36,15 @@
 
   &__image {
     width: 40%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 
     @include mq(xsmall) {
       width: 100%;
       max-width: 500px;
+      transform: initial !important;
     }
 
     img {
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
       width: 100%;
     }
   }

@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MasonryLayout from 'react-masonry-layout';
 import Image from 'gatsby-image';
 import { PhotoSwipe } from 'react-pswp';
+import { $$ } from '../modules/utils/dom';
+import FromCenter from '../modules/from-center';
 
 const ImageGallery = ({ props }) => {
   const [index, setIndex] = useState(null);
   const [open, setOpen] = useState(false);
+  const galleryEl = useRef(null);
   let masonryInstance = null;
 
   const sizes = [
@@ -34,11 +37,32 @@ const ImageGallery = ({ props }) => {
     window.addEventListener('resize', () => bricksInstance.pack(), {
       passive: true,
     });
+
+    // Fade-In Animation
+    const galleryItems = $$('.image-gallery__item', galleryEl.current);
+    if (galleryItems.length) {
+      galleryItems.forEach((item) => {
+        let firstRun = true;
+        new FromCenter(item, 'scroll', ({ percentage, position }) => {
+          if (position === 'above') {
+            item.classList.add('fade-in');
+            firstRun = false;
+          } else if (
+            firstRun &&
+            position === 'inside' &&
+            (parseFloat(percentage) < parseFloat(-0.2) || percentage === 1)
+          ) {
+            item.classList.add('fade-in');
+            firstRun = false;
+          }
+        }).start();
+      });
+    }
   }, [masonryInstance]);
 
   return (
     <>
-      <div className="image-gallery">
+      <div className="image-gallery" ref={galleryEl}>
         {props.showHeading && (
           <h2 className="image-gallery__title">{props.heading}</h2>
         )}

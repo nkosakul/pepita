@@ -21,6 +21,9 @@
     max-width: 980px;
     padding-right: 50px;
     padding-left: 50px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
 
     @include mq(xlarge) {
       padding-right: 25px;
@@ -30,6 +33,11 @@
     @include mq(small) {
       padding-right: 0;
       padding-left: 0;
+    }
+
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'gatsby-image';
 import useSiteMetadata from '../hooks/use-sitemetadata';
 
 const Jumbotron = ({ props }) => {
+  const textEl = useRef(null);
   const { facebook, instagram, youtube } = useSiteMetadata();
+
+  useEffect(() => {
+    textEl.current.classList.add('fade-in');
+  }, []);
 
   return (
     <section className="jumbotron" data-header>
@@ -12,7 +17,7 @@ const Jumbotron = ({ props }) => {
       </div>
 
       <div className="jumbotron__inner">
-        <div className="jumbotron__context">
+        <div className="jumbotron__context" ref={textEl}>
           <h1
             className="is-h2"
             dangerouslySetInnerHTML={{ __html: props.title }}
