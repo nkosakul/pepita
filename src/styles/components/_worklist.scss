@@ -115,6 +115,10 @@
     padding: 50px 10px;
     transition: background-color 300ms ease-in-out;
 
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
     @include mq(xlarge) {
       padding-top: 40px;
       padding-bottom: 40px;
@@ -123,11 +127,6 @@
     @include mq(small) {
       padding-top: 20px;
       padding-bottom: 20px;
-    }
-
-    &:hover,
-    &.focus-visible {
-      background-color: rgba(0, 0, 0, 0.6);
     }
 
     &:after {
@@ -179,5 +178,25 @@
 
   &__teaser-tag {
     @include h4;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 35px;
+    font-weight: $f-weight-bold;
+    font-size: 22px;
+    line-height: 25px;
+    letter-spacing: 0.7px;
+
+    &:hover,
+    &.focus-visible {
+      color: $c-red;
+    }
+
+    i {
+      margin-left: 10px;
+      font-size: 16px;
+    }
   }
 }

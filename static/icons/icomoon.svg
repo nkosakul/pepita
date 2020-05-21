@@ -17,4 +17,5 @@
 <glyph unicode="&#xe907;" glyph-name="plus" d="M552.96 960h-81.92v-471.040h-471.040v-81.92h471.040v-471.040h81.92v471.040h471.040v81.92h-471.040v471.040z" />
 <glyph unicode="&#xe908;" glyph-name="play" horiz-adv-x="834" d="M833.979 448l-833.979-512v1024l833.979-512zM769.827 448l-737.751 448v-896l737.751 448z" />
 <glyph unicode="&#xe909;" glyph-name="arrow-down" horiz-adv-x="597" d="M256 960h85.333v-731.429h-85.333v731.429zM298.667-64l298.667 365.714h-597.333l298.667-365.714z" />
+<glyph unicode="&#xe90a;" glyph-name="chevron-right" horiz-adv-x="899" d="M530.319 451.72l-386.177 415.182 105.422 98.057 477.706-513.577-477.872-510.253-105.092 98.426 386.011 412.165z" />
 </font></defs></svg>

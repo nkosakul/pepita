@@ -13,6 +13,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         nodes {
           slug
           pageTitle
+          createPage
         }
       }
     }
@@ -41,13 +42,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const contenfulWorks = contenfulResults.data.allContentfulWork.nodes;
 
   contenfulWorks.forEach((work) => {
-    actions.createPage({
-      path: work.slug,
-      component: path.resolve('./src/templates/work.js'),
-      context: {
-        slug: work.slug,
-        pageTitle: work.pageTitle,
-      },
-    });
+    if (work.createPage) {
+      actions.createPage({
+        path: work.slug,
+        component: path.resolve('./src/templates/work.js'),
+        context: {
+          slug: work.slug,
+          pageTitle: work.pageTitle,
+        },
+      });
+    }
   });
 };
