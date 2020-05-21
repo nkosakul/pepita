@@ -58,31 +58,7 @@
   }
 }
 
-.button {
-  @include button;
-
-  &--small {
-    padding-right: 35px;
-    padding-left: 35px;
-  }
-
-  &--inverted {
-    border-color: $c-red;
-    background-color: $c-red;
-
-    &:hover,
-    &.focus-visible {
-      color: $c-red;
-      border-color: $c-white;
-    }
-
-    &:after {
-      background-color: $c-white;
-    }
-  }
-}
-
-.button--round {
+@mixin button-round {
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -120,6 +96,34 @@
     transition: transform 300ms ease-in-out;
     transform: rotate(45deg) translateX(-20px) translateY(75px);
   }
+}
+
+.button {
+  @include button;
+
+  &--small {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+  &--inverted {
+    border-color: $c-red;
+    background-color: $c-red;
+
+    &:hover,
+    &.focus-visible {
+      color: $c-red;
+      border-color: $c-white;
+    }
+
+    &:after {
+      background-color: $c-white;
+    }
+  }
+}
+
+.button--round {
+  @include button-round;
 }
 
 .menu-button {
