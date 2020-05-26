@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'gatsby-image';
 import emailjs from 'emailjs-com';
 
@@ -13,6 +13,9 @@ const Contactform = ({ props }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [formError, setFormError] = useState(false);
   const formEl = useRef(null);
+  const honeypotjsEl = useRef(null);
+  const honeypotValueEl = useRef(null);
+  const honeypotEmptyEl = useRef(null);
 
   const addActiveClass = (e) => {
     const input = e.currentTarget;
@@ -36,29 +39,39 @@ const Contactform = ({ props }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setShowNotification(false);
-    setFormError(false);
+    // do a honeypot-check first
+    if (
+      honeypotValueEl.current.value === 'honeypot@honey.com' &&
+      !honeypotEmptyEl.current.value
+    ) {
+      setShowNotification(false);
+      setFormError(false);
 
-    emailjs
-      .send(
-        process.env.GATSBY_SERVICE_ID,
-        process.env.GATSBY_TEMPLATE_ID,
-        formParams,
-        process.env.GATSBY_USER_ID
-      )
-      .then(
-        (response) => {
-          setFormParams(initialState);
-          resetForm();
-          setFormError(false);
-          setShowNotification('Formular wurde erfolgreich abgeschickt!');
-        },
-        (err) => {
-          setFormError(true);
-          setShowNotification('Es ist leider ein Fehler aufgetreten!');
-        }
-      );
+      emailjs
+        .send(
+          process.env.GATSBY_SERVICE_ID,
+          process.env.GATSBY_TEMPLATE_ID,
+          formParams,
+          process.env.GATSBY_USER_ID
+        )
+        .then(
+          (response) => {
+            setFormParams(initialState);
+            resetForm();
+            setFormError(false);
+            setShowNotification('Formular wurde erfolgreich abgeschickt!');
+          },
+          (err) => {
+            setFormError(true);
+            setShowNotification('Es ist leider ein Fehler aufgetreten!');
+          }
+        );
+    }
   };
+
+  useEffect(() => {
+    honeypotjsEl.current.style.display = 'none'; // honeypot field hide by js
+  }, []);
 
   return (
     <section className="contact" data-header>
@@ -121,7 +134,24 @@ const Contactform = ({ props }) => {
                   setFormParams({ ...formParams, from_message: e.target.value })
                 }
               />
+
+              {/* Honeypot */}
+              <label style={{ display: 'none' }}>
+                Leave this Field blank
+                <input type="text" name="from_honey" ref={honeypotEmptyEl} />
+              </label>
+              <label className="sr-only" aria-hidden="true" ref={honeypotjsEl}>
+                Please do not change this field
+                <input
+                  className="sr-only"
+                  type="text"
+                  name="email"
+                  defaultValue="honeypot@honey.com"
+                  ref={honeypotValueEl}
+                />
+              </label>
             </div>
+
             <div className="form-notification-wrapper">
               {showNotification && (
                 <div
